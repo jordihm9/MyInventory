@@ -16,7 +16,7 @@ class RegisterController extends Controller
      * Create a new email, set the verification code and send an email with it
      * Receive an email
      */
-    public function setEmail(Request $request)
+    public function registerEmail(Request $request)
     {
         // validate email before continuing
         $validated = $request->validate([
@@ -66,7 +66,7 @@ class RegisterController extends Controller
     /**
      * Receive and email, name, surnames, sex and password
      */
-    public function register(Request $request)
+    public function registerUser(Request $request)
     {
         $validated = $request->validate([
             'email' => ['required', 'email:filter', 'exists:emails'],
