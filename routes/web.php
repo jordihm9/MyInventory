@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,9 @@ Route::prefix('register')->group(function() {
 		Route::post('validate', [RegisterController::class, 'validateEmail'])->name('validate');
 	});
 });
+
+// Route to login
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+// Route to logout
+Route::post('/logout', [LogoutController::class, 'logout']);
