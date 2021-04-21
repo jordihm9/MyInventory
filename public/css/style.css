@@ -1,1 +1,379 @@
+@font-face {
+  font-family: "Bebas Neue";
+  src: url(/fonts/BebasNeue-Regular.ttf?9aa03f9d52866893add50e8b4912ae52);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Light.ttf?850f6774fcb288117634fe1ba80c38d9);
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Regular.ttf?1c0bf0728b51cb9f2ddc01b897da06d3);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Bold.ttf?3919333f2e366bb4341e09929ea31d60);
+  font-weight: 700;
+}
+body,
+input {
+  font-family: "Fira Sans";
+  letter-spacing: 0.15em;
+}
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Bebas Neue";
+  letter-spacing: 0.2em;
+}
+
+h1 {
+  font-size: 3.25rem;
+}
+
+h2 {
+  font-size: 2.85rem;
+}
+
+h3 {
+  font-size: 2.25rem;
+}
+
+h4 {
+  font-size: 1.85rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: inherit;
+  outline: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}
+
+input:focus {
+  outline: inherit;
+  border: inherit;
+}
+
+body {
+  color: #F7F7F7;
+  background: #091220;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+.container {
+  margin: auto;
+  padding: 1.75em 2.5em;
+  border-radius: 1.5rem;
+  color: #091220;
+  background: #F7F7F7;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.underline {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+
+.underline:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0.15em;
+  left: 0;
+  height: 0.35em;
+  background: #FD7A33;
+  z-index: -1;
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url(/fonts/BebasNeue-Regular.ttf?9aa03f9d52866893add50e8b4912ae52);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Light.ttf?850f6774fcb288117634fe1ba80c38d9);
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Regular.ttf?1c0bf0728b51cb9f2ddc01b897da06d3);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Bold.ttf?3919333f2e366bb4341e09929ea31d60);
+  font-weight: 700;
+}
+.btn {
+  display: inline-block;
+  margin: 0 1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 25rem;
+  font-size: 1.2rem;
+  font-family: "Fira Sans";
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn.radio {
+  border: 2px solid #091220;
+  color: #091220;
+  font-weight: 400;
+  transition: background 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+.btn.radio.active {
+  background: #091220;
+  color: #F7F7F7;
+}
+
+.btn.radio:hover {
+  background: #091220;
+  color: #F7F7F7;
+}
+
+.btn.primary, .btn.secondary, .btn.dark {
+  transition: box-shadow 350ms ease-in-out;
+}
+
+.btn.primary {
+  color: #091220;
+  background: linear-gradient(260deg, #FD7A33, #ffac52);
+}
+
+.btn.primary:hover, .btn.primary:focus {
+  box-shadow: 0 0 0.5rem 0.15rem rgba(253, 122, 51, 0.8);
+  color: #091220;
+}
+
+.btn.secondary {
+  color: #F7F7F7;
+  background: linear-gradient(260deg, #005246, #4C8076);
+}
+
+.btn.secondary:hover, .btn.secondary:focus {
+  box-shadow: 0 0 0.5rem 0.15rem rgba(0, 82, 70, 0.8);
+  color: #F7F7F7;
+}
+
+.btn.dark {
+  color: #F7F7F7;
+  background: linear-gradient(260deg, #091220, #35435A);
+}
+
+.btn.dark:hover, .btn.dark:focus {
+  box-shadow: 0 0 0.5rem 0.15rem rgba(9, 18, 32, 0.8);
+  color: #F7F7F7;
+}
+
+.btn.light {
+  color: #F7F7F7;
+  box-shadow: 0 0 0 2px #F7F7F7;
+  transition: background 350ms ease-in-out, color 350ms ease-in-out;
+}
+
+.btn.light:hover, .btn.light:focus {
+  background: #F7F7F7;
+  color: #091220;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1.5em 0;
+}
+
+.input-group.required > label:after {
+  content: " *";
+  color: #820A00;
+}
+
+input {
+  padding: 0.85em 1.5em;
+  border: 2px solid #091220;
+  border-radius: 2.5rem;
+  color: #091220;
+  background: #F7F7F7;
+}
+
+input:focus {
+  border: 2px solid #091220;
+  box-shadow: 0 0 0 0.1rem #091220;
+}
+
+input[type=submit] {
+  border: none;
+}
+
+label {
+  padding: 0 0 0.5em 1.5em;
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url(/fonts/BebasNeue-Regular.ttf?9aa03f9d52866893add50e8b4912ae52);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Light.ttf?850f6774fcb288117634fe1ba80c38d9);
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Regular.ttf?1c0bf0728b51cb9f2ddc01b897da06d3);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Bold.ttf?3919333f2e366bb4341e09929ea31d60);
+  font-weight: 700;
+}
+header {
+  font-family: "Bebas Neue";
+}
+
+nav {
+  position: relative;
+  width: 100%;
+  height: 10vh;
+}
+
+nav .btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(50%);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  padding: 1em 2em;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 1.25em;
+  letter-spacing: 0.25em;
+  display: inline-block;
+  transition: transform 250ms ease;
+}
+
+.nav-link:hover {
+  transform: scale(1.1);
+}
+
+.nav-link:focus:after {
+  opacity: 1;
+}
+
+.nav-link:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.15em;
+  left: 0;
+  height: 0.15em;
+  background: #F7F7F7;
+  opacity: 0;
+  transition: opacity 250ms linear;
+}
+
+.nav-link.active:after {
+  background: #FD7A33;
+  opacity: 1;
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url(/fonts/BebasNeue-Regular.ttf?9aa03f9d52866893add50e8b4912ae52);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Light.ttf?850f6774fcb288117634fe1ba80c38d9);
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Regular.ttf?1c0bf0728b51cb9f2ddc01b897da06d3);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Bold.ttf?3919333f2e366bb4341e09929ea31d60);
+  font-weight: 700;
+}
+#auth-container {
+  margin-top: 5vh;
+  width: 30rem;
+}
+
+#auth-container > :first-child {
+  margin: 0.5em 0 1.5em 0;
+  text-align: center;
+}
+
+#auth-container a {
+  color: #FD7A33;
+}
+
+#auth-container .submit-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5em 0;
+}

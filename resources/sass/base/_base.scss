@@ -1,0 +1,48 @@
+@use '../abstracts/' as *;
+
+body {
+    color: $clr-light;
+    background: $clr-dark;
+}
+
+a {
+    color: inherit;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+.container {
+    margin: auto;
+    padding: 1.75em 2.5em;
+    border-radius: 1.5rem;
+    color: $clr-dark;
+    background: $clr-light;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.underline {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+
+    &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: .15em;
+        left: 0;
+        height: .35em;
+        background: $clr-pri;
+        z-index: -1;
+    }
+}

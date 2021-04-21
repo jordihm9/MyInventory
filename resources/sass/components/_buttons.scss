@@ -1,0 +1,96 @@
+@use '../abstracts/' as *;
+
+@mixin btn-shadow($clr) {
+    box-shadow: 0 0 .5rem .15rem rgba($clr, 0.8);
+}
+
+@mixin gradient-background($from, $to) {
+    background: linear-gradient(260deg, $from, $to);
+}
+
+.btn {
+	display: inline-block;
+    margin: 0 1rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 25rem;
+    font-size: 1.2rem;
+	font-family: 'Fira Sans';
+	font-weight: 600;
+    letter-spacing: 0.15em;
+    background: transparent;
+    cursor: pointer;
+    
+    &:focus {
+        box-shadow: none;
+    }
+    
+    &.radio {
+        border: 2px solid $clr-dark;
+        color: $clr-dark;
+        font-weight: 400;
+        transition: background 250ms ease-in-out, color 250ms ease-in-out;
+
+        &.active {
+            background: $clr-dark;
+            color: $clr-light;
+        }
+
+        &:hover {
+            background: $clr-dark;
+            color: $clr-light;
+        }
+    }
+
+
+    &.primary,
+    &.secondary,
+    &.dark {
+        transition: box-shadow 350ms ease-in-out;
+    }
+    
+    &.primary {
+        color: $clr-dark;
+        @include gradient-background($clr-pri, $clr-pri-light);
+		
+		&:hover,
+        &:focus {
+            @include btn-shadow($clr-pri);
+            color: $clr-dark;
+		}
+    }
+
+    &.secondary {
+        color: $clr-light;
+        @include gradient-background($clr-sec, $clr-sec-light);
+
+        &:hover,
+        &:focus {
+            @include btn-shadow($clr-sec);
+            color: $clr-light;
+        }
+    }
+    
+    &.dark {
+        color: $clr-light;
+        @include gradient-background($clr-dark, $clr-dark-light);
+
+        &:hover,
+        &:focus {
+            @include btn-shadow($clr-dark);
+            color: $clr-light;
+        }
+    }
+
+    &.light {
+        color: $clr-light;
+        box-shadow: 0 0 0 2px $clr-light;
+        transition: background 350ms ease-in-out, color 350ms ease-in-out;
+
+        &:hover,
+        &:focus {
+            // box-shadow: 0 0 0.5rem 0.15rem rgba($clr-dark, 0.8) !important;
+            background: $clr-light;
+            color: $clr-dark;
+        }
+    }
+}

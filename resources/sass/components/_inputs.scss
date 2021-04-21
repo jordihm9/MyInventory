@@ -1,0 +1,33 @@
+@use '../abstracts/' as *;
+
+.input-group {
+	display: flex;
+	flex-direction: column;
+	margin: 0 0 1.5em 0;
+
+	&.required > label:after {
+		content: ' *';
+		color: $clr-red;
+	}
+}
+
+input {
+	padding: .85em 1.5em;
+	border: 2px solid $clr-dark;
+	border-radius: 2.5rem;
+	color: $clr-dark;
+	background: $clr-light;
+
+	&:focus {
+		border: 2px solid $clr-dark;
+		box-shadow: 0 0 0 .1rem $clr-dark;
+	}
+}
+
+input[type=submit] {
+	border: none;
+}
+
+label {
+	padding: 0 0 .5em 1.5em;
+}
