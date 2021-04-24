@@ -249,6 +249,37 @@ input:focus {
   box-shadow: 0 0 0 0.1rem #091220;
 }
 
+input.error {
+  border-color: #820A00 !important;
+  box-shadow: 0 0 0 0.1rem #820A00;
+  -webkit-animation: shake 150ms linear 0s 3 alternate none;
+          animation: shake 150ms linear 0s 3 alternate none;
+  transition: transform 100ms linear;
+}
+
+@-webkit-keyframes shake {
+  from {
+    transform: translateX(0.5rem);
+  }
+  to {
+    transform: translateX(-0.5rem);
+  }
+}
+
+@keyframes shake {
+  from {
+    transform: translateX(0.5rem);
+  }
+  to {
+    transform: translateX(-0.5rem);
+  }
+}
+.error__message {
+  padding: 1em 0 0 1.5em;
+  font-size: 0.85em;
+  color: #820A00;
+}
+
 input[type=submit] {
   border: none;
 }

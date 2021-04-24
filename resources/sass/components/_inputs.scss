@@ -22,6 +22,36 @@ input {
 		border: 2px solid $clr-dark;
 		box-shadow: 0 0 0 .1rem $clr-dark;
 	}
+
+	&.error {
+		border-color: $clr-red !important;
+		box-shadow: 0 0 0 .1rem $clr-red;
+		animation: shake 150ms linear 0s 3 alternate none;
+		// animation-name: shake;
+		// animation-duration: 150ms;
+		// animation-timing-function: linear;
+		// animation-delay: 250ms;
+		// animation-iteration-count: 3;
+		// animation-direction: alternate;
+		// animation-fill-mode: none;
+		transition: transform 100ms linear;
+
+		@keyframes shake {
+			from {
+				transform: translateX(.5rem);
+			}
+			to {
+				transform: translateX(-.5rem);
+			}
+		}
+	}
+	
+}
+
+.error__message {
+	padding: 1em 0 0 1.5em;
+	font-size: .85em;
+	color: $clr-red;
 }
 
 input[type=submit] {

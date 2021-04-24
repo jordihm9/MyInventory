@@ -17,7 +17,8 @@ class LoginController extends Controller
     {
         // validate email
         $validated = $request->validate([
-            'email' => ['required', 'email:filter'],
+            'email' => ['required', 'email:filter', 'email:dns'],
+            'password' => ['required']
         ]);
 
         // get the credentials from the request

@@ -20,7 +20,7 @@ class RegisterController extends Controller
     {
         // validate email before continuing
         $validated = $request->validate([
-            'email' => ['required', 'email:filter', 'unique:emails']
+            'email' => ['required', 'email:filter', 'email:dns', 'unique:emails']
         ]);
 
         // generate the verification code
@@ -36,6 +36,9 @@ class RegisterController extends Controller
         ]);
 
         // send the email with the verification code
+
+        // send the response with status code 201 (created a new resource)
+        return response('registered', 201);
     }
 
     /**
@@ -60,7 +63,16 @@ class RegisterController extends Controller
             $email->verified = true;
             $email->verified_at = Carbon::now();
             $email->save();
+            
+            $message = 'verified';
+            $statusCode = 202;
+        } else {
+            $message = 'not_verified';
+            $statusCode = 401;
         }
+        
+        // send the response with status code 200 and message
+        return response($message, $statusCode);
     }
 
     /**
@@ -99,5 +111,8 @@ class RegisterController extends Controller
             'password' => $hashedPassword,
             'email_id' => $email->id,
         ]);
+
+        // redirect to to home page
+        return redirect()->route('login.view');
     }
 }

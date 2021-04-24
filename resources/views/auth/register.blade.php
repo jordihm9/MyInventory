@@ -1,21 +1,29 @@
 @extends('auth.master')
 
+@push('scripts')
+	<script src="{{ asset('js/register.js') }}" defer></script>
+@endpush
+
 @section('title', 'Register')
 
 @section('content')
 	<form action="{{ route('register.user') }}" method="post" id="register-form">
+		@csrf
 		<div id="email-step" class="input-group required">
 			<label for="email">Email</label>
 			<input type="text" name="email" id="email">
+			<span id="email-error" class="error__message"></span>
 		</div>
 		<div id="code-step" class="input-group required">
-			<label for="verification-code">Verification code</label>
-			<input type="text" name="verification-code" id="verification-code">
+			<label for="verification_code">Verification code</label>
+			<input type="text" name="verification_code" id="verification_code">
+			<span id="code-error" class="error__message"></span>
 		</div>
 		<div id="personal-data-step">
 			<div class="input-group required">
 				<label for="name">Name</label>
 				<input type="text" name="name" id="name">
+				<span id="name-error" class="error__message"></span>
 			</div>
 			<div class="input-group">
 				<label for="surnames">Surnames</label>
@@ -30,10 +38,12 @@
 			<div class="input-group required">
 				<label for="password">Password</label>
 				<input type="password" name="password" id="password">
+				<span id="password-error" class="error__message"></span>
 			</div>
 			<div class="input-group required">
 				<label for="password_confirmation">Confirm password</label>
 				<input type="password" name="password_confirmation" id="password_confirmation">
+				<span id="password-confirmation-error" class="error__message"></span>
 			</div>
 		</div>
 		<div class="submit-container">

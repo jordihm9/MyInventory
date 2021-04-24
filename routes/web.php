@@ -38,4 +38,4 @@ Route::prefix('login')->group(function() {
 });
 
 // Route to logout
-Route::post('/logout', [LogoutController::class, 'logout']);
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
