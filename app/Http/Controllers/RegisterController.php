@@ -25,6 +25,10 @@ class RegisterController extends Controller
 
         // generate the verification code
         $verificationCode = Str::random(6);
+        \Log::info('Verification code: '. $verificationCode);
+
+        // hash the verification code
+        $hashedVerificationCode = Hash::make($verificationCode);
 
         // get the email from the request
         $email = $request->input('email');
@@ -32,7 +36,7 @@ class RegisterController extends Controller
         // create and insert a new email
         $email = Email::create([
             'email'=> $email,
-            'verification_code' => $verificationCode,
+            'verification_code' => $hashedVerificationCode,
         ]);
 
         // send the email with the verification code
@@ -58,7 +62,7 @@ class RegisterController extends Controller
         $email = Email::where('email', $request->input('email'))->firstOrFail();
 
         // compare if code sent is the same as the code for the email
-        if ($email->verification_code === $verificationCode) {
+        if (Hash::check($verificationCode, $email->verification_code)) {
             // update the email
             $email->verified = true;
             $email->verified_at = Carbon::now();
