@@ -1,0 +1,105 @@
+@use '../abstracts/' as *;
+
+#hero {
+	position: relative;
+	min-height: 90vh;
+	text-align: center;
+
+	& > .wrapper {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+#hero-text {
+	display: inline-block;
+	position: relative;
+	font-size: 2em;
+	font-weight: 300;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: .2em;
+		right: -.25em;
+		bottom: .1em;
+		width: .05em;
+		background: $clr-light;
+		transition: opacity 500ms ease;
+		animation-name: blink;
+		animation-duration: 1000ms;
+		animation-iteration-count: infinite;
+
+
+		@keyframes blink {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+#steps {
+	width: 75%;
+
+	@media screen and (max-width: $xl-breakpoint) {
+		width: 85%;
+	}
+
+	& h1 {
+		margin: .5em 0 1.5em 0;
+	}
+}
+
+.step {
+	display: grid;
+
+	@media screen and (min-width: $lg-breakpoint) {
+		grid-template-columns: repeat(2, 1fr);
+
+		&:nth-child(even) {
+		
+			& > .step__image {
+				grid-row: 1/2;
+				grid-column: 2 / 3;
+			}
+			
+			& > .step__text {
+				grid-row: 1/2;
+				grid-column: 1 / 2;
+			}
+		}
+	}
+}
+
+.step__image,
+.step__text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.step__image {
+	min-width: 100%;
+
+	img {
+		width: 100%;
+
+		@media screen and (max-width: $lg-breakpoint) {
+			width: 75%;
+		}
+	}
+}
+
+.step__text {
+	& > p {
+		padding: .75em 1.5em;
+		line-height: 1.5em;
+	}
+}

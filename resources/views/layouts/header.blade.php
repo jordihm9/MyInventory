@@ -9,12 +9,15 @@
 		<div id="line2" class="line"></div>
 		<div id="line3" class="line"></div>
 	</div>
-	@if (Auth::check())
+	<div class="wrapper">
+		@if (Auth::check())
 		<form action="{{ route('logout') }}" method="post">
 			@csrf
 			<input type="submit" value="Log out" class="btn light">
 		</form>
-	@else
-		<a href="{{ route('login.view') }}"><div class="btn light">Log in</div></a>
-	@endif
+		@else
+		<a href="{{ route('register.view') }}"><div class="btn light">Register</div></a>
+		<a href="{{ route('login.view') }}"><div class="btn primary">Log in</div></a>
+		@endif
+	</div>
 </nav>
