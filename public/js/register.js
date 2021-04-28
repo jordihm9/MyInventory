@@ -1,3 +1,5 @@
+'use strict';
+
 // select steps containers
 const emailStep = $('#email-step');
 const codeStep = $('#code-step');
