@@ -11,6 +11,10 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
+
+	@media  screen and (max-width: $xl-breakpoint) {
+		min-height: 100vh;
+	}
 }
 
 #hero-text {

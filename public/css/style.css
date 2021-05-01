@@ -104,6 +104,7 @@ input:focus {
 body {
   color: #F7F7F7;
   background: #091220;
+  overflow-x: hidden;
 }
 
 a {
@@ -394,6 +395,95 @@ nav > .wrapper {
   opacity: 1;
 }
 
+.burger {
+  display: none;
+  position: fixed;
+  top: 5vh;
+  right: 5%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.burger .line {
+  margin: 6px;
+  height: 4px;
+  width: 33px;
+  border-color: #F7F7F7;
+  background: #F7F7F7;
+  transition: transform 400ms ease-in-out;
+}
+
+@media screen and (max-width: 1200px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 55%;
+    min-height: 100vh;
+    background: rgba(9, 18, 32, 0.9);
+    transform: translateX(100%);
+    transition: transform 250ms ease-in;
+    z-index: 10;
+  }
+}
+@media screen and (max-width: 1200px) and (max-width: 768px) {
+  nav {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  nav.slide {
+    transform: translateX(0%);
+  }
+}
+@media screen and (max-width: 1200px) {
+  nav > .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 1.5em;
+    top: unset;
+    right: 2em;
+    bottom: 0;
+    transform: translateY(-50%);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .nav-links {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: unset;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .burger {
+    display: block;
+  }
+
+  .burger.cross > .line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .burger.cross > .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.cross > .line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .nav-link:hover {
+    transform: translateX(0.75em);
+  }
+}
 @font-face {
   font-family: "Bebas Neue";
   src: url(/fonts/BebasNeue-Regular.ttf?9aa03f9d52866893add50e8b4912ae52);
@@ -447,6 +537,11 @@ nav > .wrapper {
   transform: translate(-50%, -50%);
 }
 
+@media screen and (max-width: 1200px) {
+  #hero {
+    min-height: 100vh;
+  }
+}
 #hero-text {
   display: inline-block;
   position: relative;
