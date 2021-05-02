@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +41,5 @@ Route::prefix('login')->group(function() {
 
 // Route to logout
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+Route::post('category/{id}/subcategories', [CategoriesController::class, 'getSubcategories']);
