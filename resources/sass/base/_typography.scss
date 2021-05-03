@@ -1,7 +1,8 @@
 @use '../abstracts/' as *;
 
 body,
-input {
+input,
+select {
     font-family: 'Fira Sans';
     letter-spacing: .15em;
 }

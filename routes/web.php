@@ -42,4 +42,8 @@ Route::prefix('login')->group(function() {
 // Route to logout
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+Route::middleware(['auth'])->group(function() {
+	Route::get('inventory', [InventoryController::class, 'index'])->name('inventory');
+});
+
 Route::post('category/{id}/subcategories', [CategoriesController::class, 'getSubcategories']);

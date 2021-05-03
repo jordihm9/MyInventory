@@ -19,7 +19,8 @@
   font-weight: 700;
 }
 body,
-input {
+input,
+select {
   font-family: "Fira Sans";
   letter-spacing: 0.15em;
 }
@@ -89,14 +90,16 @@ ol {
   list-style: none;
 }
 
-input {
+input,
+select {
   background: transparent;
   padding: 0;
   margin: 0;
   font-size: inherit;
 }
 
-input:focus {
+input:focus,
+select:focus {
   outline: inherit;
   border: inherit;
 }
@@ -258,7 +261,21 @@ a:hover, a:focus {
   color: #820A00;
 }
 
-input {
+.radio-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.25em;
+}
+
+.radio-wrapper > .radio {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+input,
+select {
   padding: 0.85em 1.5em;
   border: 2px solid #091220;
   border-radius: 2.5rem;
@@ -266,12 +283,14 @@ input {
   background: #F7F7F7;
 }
 
-input:focus {
+input:focus,
+select:focus {
   border: 2px solid #091220;
   box-shadow: 0 0 0 0.1rem #091220;
 }
 
-input.error {
+input.error,
+select.error {
   border-color: #820A00 !important;
   box-shadow: 0 0 0 0.1rem #820A00;
   -webkit-animation: shake 150ms linear 0s 3 alternate none;
@@ -296,6 +315,40 @@ input.error {
     transform: translateX(-0.5rem);
   }
 }
+input[type=radio]:checked + label.radio {
+  color: #F7F7F7;
+  background: #091220;
+}
+
+select {
+  cursor: pointer;
+}
+
+.custom-select {
+  position: relative;
+}
+
+.custom-select > select {
+  padding-right: 2.5em;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.custom-select:after {
+  content: "";
+  display: inline;
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  margin-left: 1em;
+  border: 0.5em solid transparent;
+  border-top: 0.5em solid #091220;
+  border-bottom-width: 0;
+  transform: translateY(-50%);
+}
+
 .error__message {
   padding: 1em 0 0 1.5em;
   font-size: 0.85em;
@@ -308,6 +361,14 @@ input[type=submit] {
 
 label {
   padding: 0 0 0.5em 1.5em;
+}
+
+label[for=reset] {
+  cursor: pointer;
+}
+
+label[for=reset]:hover, label[for=reset]:focus {
+  text-decoration: underline;
 }
 
 @font-face {

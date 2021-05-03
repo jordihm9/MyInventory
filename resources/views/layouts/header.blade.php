@@ -1,7 +1,7 @@
 <nav>
 	<ul class="nav-links">
 		<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-		<li class="nav-item"><a href="#" class="nav-link">Inventory</a></li>
+		<li class="nav-item"><a href="{{ route('inventory') }}" class="nav-link">Inventory</a></li>
 		<li class="nav-item"><a href="#" class="nav-link">Support</a></li>
 	</ul>
 	<div class="wrapper">
