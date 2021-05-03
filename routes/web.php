@@ -19,7 +19,7 @@ use App\Http\Controllers\CategoriesController;
 |
 */
 
-Route::view('/', 'home');
+Route::view('/', 'home')->name('home');
 
 // Routes for registration
 Route::prefix('register')->group(function() {
