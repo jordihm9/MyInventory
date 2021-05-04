@@ -52,4 +52,20 @@ class Product extends Model
     {
         return $this->belongsTo(Subcategory::class);
     }
+
+    /**
+     * Get the condition of the product
+     */
+    public function condition()
+    {
+        return $this->belongsTo(Condition::class);
+    }
+
+    /**
+     * Get the state of the product
+     */
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
 }

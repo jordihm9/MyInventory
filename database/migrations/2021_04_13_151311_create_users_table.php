@@ -20,8 +20,6 @@ class CreateUsersTable extends Migration
             $table->enum('sex', ['M', 'F'])->nullable();
             $table->longText('password');
             $table->string('language', 5)->nullable();
-            $table->foreignId('email_id')->references('id')->on('emails');
-            $table->unique('email_id');
             $table->timestamps();
         });
     }

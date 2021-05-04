@@ -18,11 +18,9 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->integer('quantity')->default(1);
-            $table->float('price')->default(0);
+            $table->float('unit_price')->default(0);
+            $table->float('total_price')->default(0);
             $table->dateTime('creation_date')->useCurrent();
-            $table->foreignId('category_id')->references('id')->on('categories')->nullable();
-            $table->foreignId('subcategory_id')->references('id')->on('subcategories')->nullable();
-            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

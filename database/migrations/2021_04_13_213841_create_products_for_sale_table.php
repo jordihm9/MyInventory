@@ -17,7 +17,7 @@ class CreateProductsForSaleTable extends Migration
             $table->id();
             $table->float('offer_price');
             $table->float('sale_price')->nullable();
-            $table->foreignId('product_id')->references('id')->on('products');
+            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }
