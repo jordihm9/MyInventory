@@ -1,6 +1,7 @@
 @extends('auth.master')
 
 @push('scripts')
+	<script src="{{ asset('js/validations-helpers.js') }}"></script>
 	<script src="{{ asset('js/register.js') }}" defer></script>
 @endpush
 
