@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoriesController;
 
 /*
@@ -44,6 +45,14 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function() {
 	Route::get('inventory', [InventoryController::class, 'index'])->name('inventory');
+
+	Route::prefix('product')->group(function() {
+		Route::name('product.')->group(function() {
+			Route::get('create', [ProductController::class, 'create'])->name('create.view');
+			Route::get('edit', [ProductController::class, 'edit'])->name('edit.view');
+			Route::post('save', [ProductController::class, 'save'])->name('save');
+		});
+	});
 });
 
 Route::post('category/{id}/subcategories', [CategoriesController::class, 'getSubcategories']);

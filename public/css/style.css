@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Bebas Neue";
   src: url(/fonts/BebasNeue-Regular.ttf?9aa03f9d52866893add50e8b4912ae52);
@@ -20,7 +21,8 @@
 }
 body,
 input,
-select {
+select,
+textarea {
   font-family: "Fira Sans";
   letter-spacing: 0.15em;
 }
@@ -91,7 +93,8 @@ ol {
 }
 
 input,
-select {
+select,
+textarea {
   background: transparent;
   padding: 0;
   margin: 0;
@@ -99,7 +102,8 @@ select {
 }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: inherit;
   border: inherit;
 }
@@ -275,22 +279,32 @@ a:hover, a:focus {
 }
 
 input,
-select {
+select,
+textarea {
   padding: 0.85em 1.5em;
   border: 2px solid #091220;
   border-radius: 2.5rem;
   color: #091220;
   background: #F7F7F7;
+  transition: box-shadow 250ms ease, border 250ms ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  box-shadow: 0 0 0.15rem 0 #091220;
 }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   border: 2px solid #091220;
   box-shadow: 0 0 0 0.1rem #091220;
 }
 
 input.error,
-select.error {
+select.error,
+textarea.error {
   border-color: #820A00 !important;
   box-shadow: 0 0 0 0.1rem #820A00;
   -webkit-animation: shake 150ms linear 0s 3 alternate none;
@@ -315,6 +329,11 @@ select.error {
     transform: translateX(-0.5rem);
   }
 }
+textarea {
+  padding: 1em 1.75em;
+  border-radius: 1.5rem;
+}
+
 input[type=radio]:checked + label.radio {
   color: #F7F7F7;
   background: #091220;
@@ -347,6 +366,7 @@ select {
   border-top: 0.5em solid #091220;
   border-bottom-width: 0;
   transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .error__message {
@@ -700,4 +720,92 @@ nav > .wrapper {
 .step__text > p {
   padding: 0.75em 1.5em;
   line-height: 1.5em;
+}
+
+.grid {
+  display: grid;
+  grid-column-gap: 1em;
+}
+
+@media screen and (min-width: 992px) {
+  .grid.col-lg-1-1-1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid.col-lg-2-1 {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+#product-form .selects {
+  display: grid;
+  grid-column-gap: 1em;
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  #product-form .selects {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+.price-input {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.price-input > input {
+  padding-right: 3em;
+}
+
+.price-input > input + span:after {
+  content: "€";
+  position: absolute;
+  top: 50%;
+  right: 1.5em;
+  transform: translateY(-50%);
+}
+
+#product-form textarea {
+  height: 100%;
+}
+
+#images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: space-evenly;
+}
+
+label.image-preview {
+  position: relative;
+  width: 15rem;
+  height: 8.4rem;
+  border: 2px dashed #091220;
+  border-radius: 1rem;
+  transition: border-width 10ms ease-in-out;
+  cursor: pointer;
+}
+
+label.image-preview:hover, label.image-preview:focus {
+  border-width: 3px;
+}
+
+label.image-preview:before, label.image-preview:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.5rem;
+  height: 2px;
+  background: #091220;
+}
+
+label.image-preview:after {
+  transform: translate(-50%, -50%) rotate(90deg);
 }

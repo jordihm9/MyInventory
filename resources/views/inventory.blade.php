@@ -57,8 +57,8 @@
 				<label for="condition">Condition</label>
 				<div class="radio-wrapper">
 					@foreach ($conditions as $condition)
-						<input type="radio" name="condition" value="{{ $condition->id }}" id="condition-b{{ $condition->id }}" hidden="hidden">
-						<label for="condition-b{{ $condition->id }}" class="btn radio">{{ $condition->name }}</label>
+						<input type="radio" name="condition" value="{{ $condition->id }}" id="condition-{{ $condition->id }}" hidden="hidden">
+						<label for="condition-{{ $condition->id }}" class="btn radio">{{ $condition->name }}</label>
 					@endforeach
 				</div>
 			</div>

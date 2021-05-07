@@ -11,7 +11,7 @@ class Product extends Model
      */
     protected $table = 'products';
 
-    protected $fillable = ['title', 'description', 'quantity', 'price', 'date', 'category_id', 'subcategory_id', 'user_id'];
+    protected $fillable = ['title', 'description', 'quantity', 'unit_price', 'total_price', 'creation_data', 'category_id', 'subcategory_id', 'condition_id', 'state_id', 'user_id'];
 
     /**
      * Get the product details if is for sale

@@ -23,12 +23,18 @@
 }
 
 input,
-select {
+select,
+textarea {
 	padding: .85em 1.5em;
 	border: 2px solid $clr-dark;
 	border-radius: 2.5rem;
 	color: $clr-dark;
 	background: $clr-light;
+	transition: box-shadow 250ms ease, border 250ms ease;
+	
+	&:hover {
+		box-shadow: 0 0 .15rem 0 $clr-dark;
+	}
 
 	&:focus {
 		border: 2px solid $clr-dark;
@@ -57,6 +63,11 @@ select {
 			}
 		}
 	}
+}
+
+textarea {
+	padding: 1em 1.75em;
+	border-radius: 1.5rem;
 }
 
 input[type=radio]:checked + label.radio {
@@ -91,6 +102,7 @@ select {
 		border-top: .5em solid $clr-dark;
 		border-bottom-width: 0;
 		transform: translateY(-50%);
+		pointer-events: none;
 	}
 }
 

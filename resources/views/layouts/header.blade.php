@@ -2,6 +2,9 @@
 	<ul class="nav-links">
 		<li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
 		<li class="nav-item"><a href="{{ route('inventory') }}" class="nav-link">Inventory</a></li>
+		@auth
+		<li class="nav-item"><a href="{{ route('product.create.view') }}" class="nav-link">Add product</a></li>
+		@endauth
 		<li class="nav-item"><a href="#" class="nav-link">Support</a></li>
 	</ul>
 	<div class="wrapper">
