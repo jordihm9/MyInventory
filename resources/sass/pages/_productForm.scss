@@ -55,41 +55,73 @@
 // 	grid-template-columns: 5fr 1fr 2fr 2fr;
 // }
 
-#images {
+#images-input > label {
+	margin-bottom: 1.5em;
+}
+
+.images-wrapper {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	gap: 1em;
 	justify-content: space-evenly;
-}
+	
+	.image-preview {
+		position: relative;
+		width: 15rem;
+		height: 8.4rem;
+		border: 2px dashed $clr-dark;
+		border-radius: 1rem;
+		overflow: hidden;
+	
+		&:hover,
+		&:focus {
+			border-width: 3px;
+	
+			&:before,
+			&:after {
+				height: 0.2rem;
+			}
+		}
+	
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 2.5rem;
+			height: .15rem;
+			background: $clr-dark;
+			transition: height 50ms ease-in-out;
+		}
+	
+		&:after {
+			transform: translate(-50%, -50%) rotate(90deg);
+		}
 
-label.image-preview {
-	position: relative;
-	width: 15rem;
-	height: 8.4rem;
-	border: 2px dashed $clr-dark;
-	border-radius: 1rem;
-	transition: border-width 10ms ease-in-out;
-	cursor: pointer;
-
-	&:hover,
-	&:focus {
-		border-width: 3px;
-	}
-
-	&:before,
-	&:after {
-		content: '';
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 2.5rem;
-		height: 2px;
-		background: $clr-dark;
-	}
-
-	&:after {
-		transform: translate(-50%, -50%) rotate(90deg);
+		& > label {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: 0;
+			cursor: pointer;
+		}
+	
+		& > img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+			transition: transform 250ms ease;
+	
+			&:hover,
+			&:focus {
+				transform: scale(1.1);
+			}
+		}
 	}
 }

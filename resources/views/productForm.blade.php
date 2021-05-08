@@ -4,6 +4,7 @@
 	<script src="{{ asset('/js/categories.js') }}"></script>
 	<script src="{{ asset('/js/validations-helpers.js') }}"></script>
 	<script src="{{ asset('/js/product-form.js') }}" defer></script>
+	<script src="{{ asset('/js/form-image-preview.js') }}"></script>
 @endpush
 
 @section('content')
@@ -137,18 +138,15 @@
 				</div>
 			</div>
 			{{-- IMAGES --}}
-			<div class="input-group">
+			<div id="images-input" class="input-group">
 				<label>Images</label>
-				<div id="images">
-					@for ($i = 1; $i <= 8; $i++)						
-						<label for="image{{ $i }}" class="image-preview"></label>
-						<input type="file" name="image{{ $i }}" id="image{{ $i }}" hidden="hidden">
-					@endfor
+				<div class="images-wrapper">
+					{{-- here goes file inputs --}}
 				</div>
 			</div>
 			{{-- FORM BUTTONS --}}
 			<div class="text-right">
-				<a href="{{ route('inventory') }}"><span class="btn dark">Cancel</span></a>
+				<a href="{{ route('inventory') }}"><div class="btn dark">Cancel</div></a>
 				<input type="submit" value="Save" class="btn primary">
 			</div>
 		</form>
