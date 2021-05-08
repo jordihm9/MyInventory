@@ -33,6 +33,12 @@ function addInput() {
 	inputsCounter++;
 }
 
+function removeInput(e) {
+	if (confirm('Are you sure you want to remove the image?')) {
+		$(e.target).parent().remove();
+	}
+}
+
 /**
  * Get the file input that was uploaded a file and append an image tag to preview it
  * @param {object} e event from event listener
@@ -52,7 +58,18 @@ function makePreview(e) {
 			// get the preview element for the input
 			let preview = $(input).parent().get(0);
 			// append the image tag
-			$('<img>').prop('src', fileReader.result).appendTo(preview);
+			$(preview)
+				.append(
+					$('<img>')
+						.prop('src', fileReader.result)
+				)
+				.append(
+					$('<div>')
+						.addClass('delete-btn')
+						.on('click', (e)=> {
+							removeInput(e);
+						})
+			);
 		})
 
 		// add another input when it ends
