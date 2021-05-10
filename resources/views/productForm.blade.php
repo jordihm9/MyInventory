@@ -72,7 +72,7 @@
 								<option value="all">-- All --</option>
 								@foreach ($categories as $category)
 									<option value="{{ $category->id }}"
-										@isset($product)
+										@isset($product->category)
 											@if ($product->category->id === $category->id)
 											selected="selected"
 											@endif
