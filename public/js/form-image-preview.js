@@ -1,8 +1,26 @@
 'use strict';
 
 let inputsCounter = 0;
+let imagesToRemoveInput;
 
 $(document).ready(function () {
+	imagesToRemoveInput = $('#images-to-remove');
+	// clear the value
+	imagesToRemoveInput.val('');
+
+	// get the images added by edit mode
+	let productImages = $('#images-input .images-wrapper').find('.image-preview');
+	// loop over each image and add the click event listener on the delete button
+	$.each(productImages, function (i, image) { 
+		// get the delete button and add the event listener
+		$(image).find('.delete-btn').on('click', (e)=> {
+			if (removeInput(e)) {
+				removeImage(e);
+			}
+		});
+	});
+
+	// add an empty input to add a file
 	addInput();
 });
 
@@ -33,10 +51,23 @@ function addInput() {
 	inputsCounter++;
 }
 
+/**
+ * Remove an input to delete the file
+ * @param {object} e 
+ */
 function removeInput(e) {
-	if (confirm('Are you sure you want to remove the image?')) {
+	let confirmation = confirm('Are you sure you want to remove the image?');
+	if (confirmation) {
 		$(e.target).parent().remove();
 	}
+	return confirmation;
+}
+
+function removeImage(e) {
+	// get the id from the image
+	let id = $(e.target).parent().find('input[type=hidden]').val();
+	// append the id to the input with the images to delete
+	imagesToRemoveInput.val(imagesToRemoveInput.val() + ','+ id);
 }
 
 /**

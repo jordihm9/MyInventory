@@ -13,7 +13,7 @@ use App\Models\State;
 class InventoryController extends Controller
 {
     /**
-     * Return to the view sending the categories and subcategories, states, conditions and products
+     * Return to the view sending the categories and subcategories, states, conditions and products from the currently logged user
      */
     public function index()
     {
@@ -21,7 +21,7 @@ class InventoryController extends Controller
             'categories' => Category::all(),
             'states' => State::all()->sortBy('id'),
             'conditions' => Condition::all()->sortBy('id'),
-            'products' => Product::all()->sortBy('id'),
+            'products' => \Auth::user()->products,
         ]);
     }
 }

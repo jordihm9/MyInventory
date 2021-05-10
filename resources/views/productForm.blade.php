@@ -71,15 +71,15 @@
 							<select name="category" id="category">
 								<option value="all">-- All --</option>
 								@foreach ($categories as $category)
-								<option value="{{ $category->id }}"
-									@isset($product)
-									@if ($product->category->id === $category->id)
-									selected="selected"
-									@endif
-									@endisset>
-								{{ $category->name }}
-							</option>
-							@endforeach
+									<option value="{{ $category->id }}"
+										@isset($product)
+											@if ($product->category->id === $category->id)
+											selected="selected"
+											@endif
+										@endisset>
+										{{ $category->name }}
+									</option>
+								@endforeach
 							</select>
 						</div>
 					</div>
@@ -90,16 +90,16 @@
 							<select name="subcategory" id="subcategory">
 								<option value="all">-- All --</option>
 								@isset($subcategories)
-								@foreach ($subcategories as $subcategory)
-								<option value="{{ $subcategory->id }}"
-									@isset($product)
-									@if ($product->subcategory->id === $subcategory->id)
-									selected="selected"
-									@endif
-									@endisset>
-									{{ $subcategory->name }}
-								</option>
-								@endforeach
+									@foreach ($subcategories as $subcategory)
+										<option value="{{ $subcategory->id }}"
+											@isset($product->subcategory)
+												@if ($product->subcategory->id === $subcategory->id)
+												selected="selected"
+												@endif
+											@endisset>
+											{{ $subcategory->name }}
+										</option>
+									@endforeach
 								@endisset
 							</select>
 						</div>
@@ -111,14 +111,14 @@
 							<select name="condition" id="condition">
 								<option disabled="disabled">-- Select --</option>
 								@foreach ($conditions as $condition)
-								<option value="{{ $condition->id }}"
-									@isset($product)
-									@if ($product->condition->id === $condition->id)
-									selected="selected"
-									@endif
-									@endisset>
-									{{ $condition->name }}
-								</option>
+									<option value="{{ $condition->id }}"
+										@isset($product->condition)
+											@if ($product->condition->id === $condition->id)
+											selected="selected"
+											@endif
+										@endisset>
+										{{ $condition->name }}
+									</option>
 								@endforeach
 							</select>
 						</div>
@@ -130,7 +130,14 @@
 							<select name="state" id="state">
 								<option disabled="disabled">-- Select --</option>
 								@foreach ($states as $state)
-								<option value="{{ $state->id }}">{{ $state->name }}</option>
+									<option value="{{ $state->id }}"
+										@isset($product->state)
+											@if ($product->state->id === $state->id)
+												selected="selected"
+											@endif
+										@endisset>
+										{{ $state->name }}
+									</option>
 								@endforeach
 							</select>
 						</div>
@@ -142,6 +149,18 @@
 				<label>Images</label>
 				<div class="images-wrapper">
 					{{-- here goes file inputs --}}
+					@isset($product->images)
+						@if(sizeof($product->images) >= 1)
+							<input type="hidden" name="images-to-remove" id="images-to-remove">
+							@foreach ($product->images as $image)
+								<div class="image-preview">
+									<input type="hidden" value="{{ $image->id }}">
+									<img src="{{ asset('storage/'. $image->url) }}">
+									<div class="delete-btn"></div>
+								</div>
+							@endforeach
+						@endif
+					@endisset
 				</div>
 			</div>
 			{{-- FORM BUTTONS --}}
