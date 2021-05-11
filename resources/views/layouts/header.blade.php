@@ -1,11 +1,27 @@
 <nav>
 	<ul class="nav-links">
-		<li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-		<li class="nav-item"><a href="{{ route('inventory') }}" class="nav-link">Inventory</a></li>
+		<li class="nav-item">
+			<a href="{{ route('home') }}" class="nav-link @if(Route::currentRouteNamed('home')) active @endif">
+				Home
+			</a>
+		</li>
+		<li class="nav-item">
+			<a href="{{ route('inventory') }}" class="nav-link @if(Route::currentRouteNamed('inventory')) active @endif">
+				Inventory
+			</a>
+		</li>
 		@auth
-		<li class="nav-item"><a href="{{ route('product.create.view') }}" class="nav-link">Add product</a></li>
+		<li class="nav-item">
+			<a href="{{ route('product.create.view') }}" class="nav-link @if(Route::currentRouteNamed('product.create.view')) active @endif">
+				Add product
+			</a>
+		</li>
 		@endauth
-		<li class="nav-item"><a href="#" class="nav-link">Support</a></li>
+		<li class="nav-item">
+			<a href="#" class="nav-link @if(Route::currentRouteNamed('#')) active @endif">
+				Support
+			</a>
+		</li>
 	</ul>
 	<div class="wrapper">
 		@if (Auth::check())
