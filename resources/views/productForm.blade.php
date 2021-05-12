@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-	<div class="container">
+	<div id="product-form-container" class="container">
 		<div class="text-center"><h1 class="underline">Add product</h1></div>
 		<form id="product-form" action="{{ route('product.save') }}" method="POST" enctype="multipart/form-data">
 			@csrf
@@ -153,9 +153,11 @@
 						@if(sizeof($product->images) >= 1)
 							<input type="hidden" name="images-to-remove" id="images-to-remove">
 							@foreach ($product->images as $image)
-								<div class="image-preview">
+								<div class="image-preview"
+								style="background-image: url({{ asset('storage/'. $image->url) }})"
+								>
 									<input type="hidden" value="{{ $image->id }}">
-									<img src="{{ asset('storage/'. $image->url) }}">
+									{{-- <img src="{{ asset('storage/'. $image->url) }}"> --}}
 									<div class="delete-btn"></div>
 								</div>
 							@endforeach

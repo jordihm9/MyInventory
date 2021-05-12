@@ -14,6 +14,10 @@ nav {
 		top: 0;
 		right: 0;
 		transform: translateY(50%);
+
+		.btn {
+			font-family: 'Fira Sans';
+		}
 	}
 }
 
@@ -70,9 +74,10 @@ nav {
 
 .burger {
 	display: none;
-	position: fixed;
+	position: absolute;
 	top: 5vh;
 	right: 5%;
+	transform: translateY(-50%);
 	width: max-content;
 	z-index: 20;
 	cursor: pointer;
@@ -88,6 +93,12 @@ nav {
 }
 
 @media screen and (max-width: $xl-breakpoint) {
+	header {
+		position: static;
+		height: 10vh;
+		background: $clr-dark;
+	}
+
 	nav {
 		position: fixed;
 		top: 0;

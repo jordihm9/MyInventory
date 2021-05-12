@@ -70,7 +70,8 @@ textarea {
 	border-radius: 1.5rem;
 }
 
-input[type=radio]:checked + label.radio {
+input[type=radio]:checked + label.radio,
+input[type=checkbox]:checked + label.radio {
 	color: $clr-light;
 	background: $clr-dark;
 }

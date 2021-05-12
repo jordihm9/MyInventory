@@ -90,10 +90,13 @@ function makePreview(e) {
 			let preview = $(input).parent().get(0);
 			// append the image tag
 			$(preview)
-				.append(
-					$('<img>')
-						.prop('src', fileReader.result)
-				)
+				// .append(
+				// 	$('<img>')
+				// 		.prop('src', fileReader.result)
+				// )
+				.css({
+					'background-image': `url(${fileReader.result})`,
+				})
 				.append(
 					$('<div>')
 						.addClass('delete-btn')
