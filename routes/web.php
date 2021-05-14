@@ -45,6 +45,7 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function() {
 	Route::get('inventory', [InventoryController::class, 'index'])->name('inventory');
+	Route::post('inventory/filter', [InventoryController::class, 'filter']);
 
 	Route::prefix('product')->group(function() {
 		Route::name('product.')->group(function() {
