@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+
+use App\Mail\RegisterVerificationCode;
 
 use App\Models\User;
 use App\Models\Email;
@@ -24,11 +27,11 @@ class RegisterController extends Controller
         ]);
 
         // generate the verification code
-        $verificationCode = Str::random(6);
-        \Log::info('Verification code: '. $verificationCode);
+        $verification_code = Str::random(6);
+        \Log::info('Verification code: '. $verification_code);
 
         // hash the verification code
-        $hashedVerificationCode = Hash::make($verificationCode);
+        $hashedVerificationCode = Hash::make($verification_code);
 
         // get the email from the request
         $email = $request->input('email');
@@ -40,6 +43,7 @@ class RegisterController extends Controller
         ]);
 
         // send the email with the verification code
+        Mail::to($email->email)->send(new RegisterVerificationCode($verification_code));
 
         // send the response with status code 201 (created a new resource)
         return response('registered', 201);

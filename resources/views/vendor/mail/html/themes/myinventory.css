@@ -1,0 +1,167 @@
+@charset "UTF-8";
+/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600&display=swap'); */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #F7F7F7;
+    background: #091220;
+    font-family: "Fira Sans";
+    letter-spacing: 0.15em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: inherit;
+    text-decoration: underline;
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-bottom: 0.75em !important;
+}
+
+h1,
+h2 {
+  font-family: "Bebas Neue";
+  letter-spacing: 0.2em;
+}
+
+h1 {
+  font-size: 2.65em;
+}
+
+h2 {
+  font-size: 2.05em;
+}
+
+h3 {
+  font-size: 1.65em;
+}
+
+h4 {
+  font-size: 1.15em;
+}
+
+@media screen and (min-width: 768px) {
+  p {
+    font-size: 1.25em;
+  }
+
+  h1 {
+    font-size: 3.05em;
+  }
+
+  h2 {
+    font-size: 2.65em;
+  }
+
+  h3 {
+    font-size: 2.05em;
+  }
+
+  h4 {
+    font-size: 1.65em;
+  }
+}
+
+.container {
+    margin: auto;
+    padding: 1.75em 2.5em;
+    border-radius: 1.5rem;
+    color: #091220;
+    background: #F7F7F7;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.underline {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+}
+
+.underline:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0.15em;
+    left: 0;
+    height: 0.35em;
+    background: #FD7A33;
+    z-index: -1;
+}
+
+.btn {
+    display: inline-block;
+    margin: 0 1rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 25rem;
+    font-weight: 600;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn.primary, .btn.secondary, .btn.dark {
+    transition: box-shadow 350ms ease-in-out;
+  }
+  
+  .btn.primary {
+    color: #091220;
+    background: linear-gradient(260deg, #FD7A33, #ffac52);
+  }
+  
+  .btn.primary:hover, .btn.primary:focus {
+    box-shadow: 0 0 0.5rem 0.15rem rgba(253, 122, 51, 0.8);
+    color: #091220;
+  }
+  
+  .btn.secondary {
+    color: #F7F7F7;
+    background: linear-gradient(260deg, #005246, #4C8076);
+  }
+  
+  .btn.secondary:hover, .btn.secondary:focus {
+    box-shadow: 0 0 0.5rem 0.15rem rgba(0, 82, 70, 0.8);
+    color: #F7F7F7;
+  }
+  
+  .btn.dark {
+    color: #F7F7F7;
+    background: linear-gradient(260deg, #091220, #35435A);
+  }
+  
+  .btn.dark:hover, .btn.dark:focus {
+    box-shadow: 0 0 0.5rem 0.15rem rgba(9, 18, 32, 0.8);
+    color: #F7F7F7;
+  }
+  
+  .btn.light {
+    color: #F7F7F7;
+    box-shadow: inset 0 0 0 2px #F7F7F7;
+    transition: background 350ms ease-in-out, color 350ms ease-in-out;
+  }
+  
+  .btn.light:hover, .btn.light:focus {
+    background: #F7F7F7;
+    color: #091220;
+  }
