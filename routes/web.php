@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoriesController;
@@ -42,6 +43,16 @@ Route::prefix('login')->group(function() {
 
 // Route to logout
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+Route::prefix('password_reset')->group(function() {
+	Route::name('password_reset')->group(function() {
+		Route::view('', 'auth.password_reset_request')->name('.request.view');
+		Route::post('', [ResetPasswordController::class, 'sendEmail'])->name('.request');
+
+		Route::get('change_password', [ResetPasswordController::class, 'changePasswordView'])->name('.change_password.view');
+		Route::post('change_password', [ResetPasswordController::class, 'changePassword'])->name('.change_password');
+	});
+});
 
 Route::middleware(['auth'])->group(function() {
 	Route::get('inventory', [InventoryController::class, 'index'])->name('inventory');

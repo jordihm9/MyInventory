@@ -16,7 +16,7 @@ class CreateEmailsTable extends Migration
         Schema::create('emails', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->longText('verification_code');
+            $table->longText('verification_code')->nullable();
             $table->boolean('verified')->default(false);
             $table->dateTime('verified_at')->nullable();
             $table->timestamps();

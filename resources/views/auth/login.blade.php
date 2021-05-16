@@ -23,7 +23,7 @@
 			@enderror
 		</div>
 		<p class="text-right">
-			<a href="#">Forgot password?</a>
+			<a href="{{ route('password_reset.request.view') }}">Forgot password?</a>
 		</p>
 		<div class="submit-container">
 			<input type="submit" value="Log in" class="btn primary">
