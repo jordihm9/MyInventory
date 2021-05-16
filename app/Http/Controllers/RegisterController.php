@@ -28,7 +28,6 @@ class RegisterController extends Controller
 
         // generate the verification code
         $verification_code = Str::random(6);
-        \Log::info('Verification code: '. $verification_code);
 
         // hash the verification code
         $hashedVerificationCode = Hash::make($verification_code);
