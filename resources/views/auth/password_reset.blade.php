@@ -2,6 +2,7 @@
 
 @push('scripts')
 	<script src="{{ asset('/js/validations-helpers.js') }}"></script>
+	<script src="{{ asset('/js/validate-passwords.js') }}"></script>
 	<script src="{{ asset('/js/change-password.js') }}" defer></script>
 @endpush
 
