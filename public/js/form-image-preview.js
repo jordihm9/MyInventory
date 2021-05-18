@@ -31,6 +31,10 @@ function addInput() {
 	let input = $('<div>')
 		.addClass('image-preview')
 		.append(
+			$('<div>')
+				.addClass('cross')
+		)
+		.append(
 			$('<label>')
 				.prop('for', `image${inputsCounter}`)
 		)
@@ -103,7 +107,8 @@ function makePreview(e) {
 						.on('click', (e)=> {
 							removeInput(e);
 						})
-			);
+				)
+				.find('.cross').remove();
 		})
 
 		// add another input when it ends

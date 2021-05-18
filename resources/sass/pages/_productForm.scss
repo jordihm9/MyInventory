@@ -87,27 +87,39 @@
 		&:focus {
 			border-width: 3px;
 	
-			&:before,
-			&:after {
-				height: 0.2rem;
+			& > .cross {
+				transform: translate(-50%, -50%) scale(1.1);
+
+				&:before,
+				&:after {
+					height: .17rem;
+				}
 			}
 		}
 	
-		&:before,
-		&:after {
-			content: '';
+		& > .cross {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			width: 2.5rem;
-			height: .15rem;
-			background: $clr-dark;
-			transition: height 50ms ease-in-out;
+			transition: transform 50ms ease;
+			
+			
+			&:before,
+			&:after {
+				content: '';
+				position: absolute;
+				display: inline-block;
+				width: 2.5rem;
+				height: .15rem;
+				background: $clr-dark;
+				transform: translateX(-50%);
+				transition: height 50ms ease;
+			}
 		}
-	
-		&:after {
-			transform: translate(-50%, -50%) rotate(90deg);
+
+		& > .cross:after {
+			transform: translateX(-50%) rotate(90deg);
 		}
 
 		& > label {

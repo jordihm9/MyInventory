@@ -1086,24 +1086,35 @@ nav > .wrapper .btn {
   border-width: 3px;
 }
 
-.images-wrapper .image-preview:hover:before, .images-wrapper .image-preview:hover:after, .images-wrapper .image-preview:focus:before, .images-wrapper .image-preview:focus:after {
-  height: 0.2rem;
+.images-wrapper .image-preview:hover > .cross, .images-wrapper .image-preview:focus > .cross {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
-.images-wrapper .image-preview:before, .images-wrapper .image-preview:after {
-  content: "";
+.images-wrapper .image-preview:hover > .cross:before, .images-wrapper .image-preview:hover > .cross:after, .images-wrapper .image-preview:focus > .cross:before, .images-wrapper .image-preview:focus > .cross:after {
+  height: 0.17rem;
+}
+
+.images-wrapper .image-preview > .cross {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: transform 50ms ease;
+}
+
+.images-wrapper .image-preview > .cross:before, .images-wrapper .image-preview > .cross:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
   width: 2.5rem;
   height: 0.15rem;
   background: #091220;
-  transition: height 50ms ease-in-out;
+  transform: translateX(-50%);
+  transition: height 50ms ease;
 }
 
-.images-wrapper .image-preview:after {
-  transform: translate(-50%, -50%) rotate(90deg);
+.images-wrapper .image-preview > .cross:after {
+  transform: translateX(-50%) rotate(90deg);
 }
 
 .images-wrapper .image-preview > label {
