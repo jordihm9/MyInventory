@@ -9,7 +9,15 @@
 
 @section('content')
 	<div id="product-form-container" class="container">
-		<div class="text-center"><h1 class="underline">Add product</h1></div>
+		<div class="text-center">
+			<h1 class="underline">
+				@if (isset($product))
+					Edit product
+				@else
+					Add product
+				@endif
+			</h1>
+		</div>
 		<form id="product-form" action="{{ route('product.save') }}" method="POST" enctype="multipart/form-data">
 			@csrf
 			<input type="hidden" name="id" value="@isset ($product){{ $product->id }}@endisset">
