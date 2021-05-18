@@ -16,6 +16,11 @@
 				Add product
 			</a>
 		</li>
+		<li class="nav-item">
+			<a href="{{ route('account.manage') }}" class="nav-link @if(Route::currentRouteNamed('account.manage')) active @endif">
+				Account
+			</a>
+		</li>
 		@endauth
 		<li class="nav-item">
 			<a href="#" class="nav-link @if(Route::currentRouteNamed('#')) active @endif">

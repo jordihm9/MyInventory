@@ -13,7 +13,7 @@
 				<img src="images/icons/filter.svg" alt="filter">
 			</div>
 			<div id="search-filter" class="container">
-				<div class="toggle-search-filter"></div>
+				<div class="close-btn toggle-search-filter"></div>
 				<form id="search-filter-form">
 					{{-- SEARCH --}}
 					<h4>Search</h4>

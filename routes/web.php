@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ManageAccountController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
-use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,15 @@ Route::middleware(['auth'])->group(function() {
 			Route::get('create', [ProductController::class, 'create'])->name('create.view');
 			Route::get('edit', [ProductController::class, 'edit'])->name('edit.view');
 			Route::post('save', [ProductController::class, 'save'])->name('save');
+		});
+	});
+
+	Route::prefix('account')->group(function() {
+		Route::name('account')->group(function() {
+			Route::get('', [ManageAccountController::class, 'show'])->name('.manage');
+
+			Route::post('update', [ManageAccountController::class, 'update'])->name('.update');
+			Route::post('change-password', [ManageAccountController::class, 'changePassword'])->name('.change_password');
 		});
 	});
 });
