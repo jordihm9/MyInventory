@@ -208,6 +208,7 @@ a:hover, a:focus {
   left: 0;
   height: 100vh;
   width: 100vw;
+  overflow-y: scroll;
   background: rgba(9, 18, 32, 0.75);
   transition: all 300ms ease-in;
 }
