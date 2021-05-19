@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @push('scripts')
+	<script src="{{ asset('js/inventory-product-info.js') }}" defer></script>
 	<script src="{{ asset('js/search-filter-container.js') }}" defer></script>
 	<script src="{{ asset('js/categories.js') }}"></script>
 @endpush
@@ -87,7 +88,7 @@
 			{{-- LIST OF PRODUCTS --}}
 			<div id="products">
 				@foreach ($products as $product)
-					<div class="product">
+					<div class="product" onclick="requestProduct({{ $product->id }})">
 						<div class="product__text">
 							@php
 								// get just the first 30 characters
@@ -123,4 +124,76 @@
 			</a>
 		</div>
 	@endif
+
+	<div class="outer">
+		<div id="product-container" class="centered container show">
+			<div class="close-btn"></div>
+			<div class="product__images"></div>
+			<div class="product__details">
+				<div>
+					<h4 class="title"></h4>
+				</div>
+				<div>
+					<p class="description"></p>
+				</div>
+				<div class="info-wrapper">
+					<div>
+						<b>Unit price: </b>
+						<span class="unit-price"></span>
+						&euro;
+					</div>
+					<div>
+						<b>Quantity: </b>
+						<span class="quantity"></span>
+					</div>
+					<div>
+						<b>Total price: </b>
+						<span class="total-price"></span>
+						&euro;
+					</div>
+				</div>
+				<div class="info-wrapper">
+					<div>
+						<b>Category: </b>
+						<span class="category"></span>
+					</div>
+					<div>
+						<b>Subcategory: </b>
+						<span class="subcategory"></span>
+					</div>
+				</div>
+				<div class="info-wrapper">
+					<div>
+						<b>Condition: </b>
+						<span class="condition"></span>
+					</div>
+					<div>
+						<b>State: </b>
+						<span class="state"></span>
+					</div>
+				</div>
+				<div class="btn-wrapper text-right">
+					<form id="delete-product-form" method="POST" style="position: absolute">
+						@csrf
+						<input type="hidden" name="product">
+						<input type="submit" value="Delete" class="btn secondary">
+					</form>
+					<a class="edit-btn-link">
+						<div class="btn primary">
+							Edit
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		{{-- SUCCESS MESSAGE CONTAINER --}}
+		<div id="success-container" class="centered container">
+			<div class="text-center">
+				<h4 class="message"></h4>
+			</div>
+			{{-- <div class="submit-container">
+				<div class="btn primary">Close</div>
+			</div> --}}
+		</div>
+	</div>
 @endsection

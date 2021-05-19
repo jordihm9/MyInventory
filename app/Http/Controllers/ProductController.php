@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use Storage;
 
@@ -16,7 +17,38 @@ use App\Models\State;
 class ProductController extends Controller
 {
     /**
+     * @param Illuminate\Http\Request $request
+     */
+    public function info(Request $request)
+    {
+        // get the id send in the request
+        $id = $request->input('id');
+
+        // try to get the product with the id and from the current logged in user
+        try {
+            $product = Product::with([
+                    'images',
+                    'category',
+                    'subcategory',
+                    'condition',
+                    'state',
+                ])
+                ->where('id', $id)
+                ->where('user_id', \Auth::id())
+                ->firstOrFail();
+
+            return response()->json([
+                'product' => $product,
+            ]);
+        }
+        catch (ModelNotFoundException $e) {
+            return response('Product not found', 200);
+        }
+    }
+
+    /**
      * Return to the view sending the categories, states and conditions
+     * @param Illuminate\Http\Request $request
      */
     public function create(Request $request)
     {
@@ -29,6 +61,7 @@ class ProductController extends Controller
 
     /**
      * Return to the view sending the product to edit, categories and subcategories, states, conditions
+     * @param Illuminate\Http\Request $request
      */
     public function edit(Request $request)
     {
@@ -58,6 +91,7 @@ class ProductController extends Controller
 
     /**
      * Receive the product data, if receives an id, update the product, if not, create a new one
+     * @param Illuminate\Http\Request $request
      */
     public function save(Request $request)
     {
@@ -127,6 +161,31 @@ class ProductController extends Controller
 
         // redirect to the inventory route
         return redirect()->route('inventory');
+    }
+
+    /**
+     * Delete a product and the images
+     * @param Illuminate\Http\Request $request
+     */
+    public function delete(Request $request)
+    {
+        $validated = $request->validate([
+            'product' => ['required']
+        ]);
+
+        // get the id of the product to delete from the request
+        $product_id = $request->input('product');
+
+        // try to get the product
+        $product = Product::where('id', $product_id)->first();
+
+        // delete the images related to the product
+        $this->deleteImages($product->images);
+
+        // delete the product itself
+        $product->delete();
+
+        return response('Product deleted', 200);
     }
 
     /**

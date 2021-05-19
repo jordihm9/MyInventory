@@ -14,5 +14,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'category/*',
         'inventory/filter',
+        'product/info',
     ];
 }

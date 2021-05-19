@@ -36,8 +36,14 @@ a {
         top: 1rem;
         right: 1rem;
         padding: 1rem;
+        border-radius: 50%;
         transform: rotate(45deg);
         cursor: pointer;
+        transition: background 100ms ease;
+
+        &:hover {
+            background: rgba($clr-dark, .15);
+        }
 
         &:before,
         &:after {
@@ -88,7 +94,7 @@ a {
     opacity: 0;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;

@@ -61,9 +61,11 @@ Route::middleware(['auth'])->group(function() {
 
 	Route::prefix('product')->group(function() {
 		Route::name('product.')->group(function() {
+			Route::post('info', [ProductController::class, 'info'])->name('info');
 			Route::get('create', [ProductController::class, 'create'])->name('create.view');
 			Route::get('edit', [ProductController::class, 'edit'])->name('edit.view');
 			Route::post('save', [ProductController::class, 'save'])->name('save');
+			Route::post('delete', [ProductController::class, 'delete'])->name('delete');
 		});
 	});
 

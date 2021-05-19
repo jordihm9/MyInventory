@@ -47,6 +47,7 @@ $image-height: 11.5rem;
 		background: $clr-light;
 		overflow: hidden;
 		transition: box-shadow 150ms ease;
+		cursor: pointer;
 
 		&:hover {
 			box-shadow: 0 0 .65rem 0 rgba($clr-light, .5);
@@ -95,6 +96,37 @@ $image-height: 11.5rem;
 	align-items: center;
 	gap: 2.5em;
 	margin: 5em 0 0 0;
+}
+
+#product-container {
+	width: 45rem;
+
+	& .product__images {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 25rem;
+		margin: 0 0 1rem 0;
+		
+		& img {
+			object-fit: contain;
+			width: 100%;
+			height: 100%;
+		}
+
+	}
+
+	& .description {
+		margin: .75rem 0;
+	}
+
+	& .info-wrapper {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.25rem;
+		margin: 0 0 1rem 0;
+	}
 }
 
 @media screen and (max-width: $xxl-breakpoint) {

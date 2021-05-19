@@ -62,7 +62,11 @@ function appendProducts(products) {
 			}
 
 			// create the container
-			let container = $('<div>').addClass('product');
+			let container = $('<div>')
+				.addClass('product')
+				.on('click', ()=> {
+					requestProduct(product.id)
+				});
 			
 			// create the text box to insert the product title
 			let text = $('<div>').addClass('product__text').text(title);
