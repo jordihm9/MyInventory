@@ -90,9 +90,6 @@ class ReportGeneratorController extends Controller
 
         $report->save();
         
-        return back();
-        // return route('reports.details')->with([
-        //     'report' => $report
-        // ]);
+        return redirect()->route('report', ['report' => $report->id]);
     }
 }

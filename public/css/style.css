@@ -1098,6 +1098,44 @@ nav > .wrapper .btn {
   background-position: center;
 }
 
+.report-detail {
+  width: 75%;
+  margin: 0 auto 2rem auto;
+}
+
+#report-products {
+  width: 100%;
+  margin: 1rem 0 0 0;
+  border-collapse: collapse;
+}
+
+#report-products thead {
+  text-align: center;
+  background: #091220;
+  color: #F7F7F7;
+}
+
+#report-products th,
+#report-products td {
+  padding: 0.5em 0.75em;
+}
+
+#report-products tbody > tr:nth-child(even) {
+  background: rgba(9, 18, 32, 0.25);
+}
+
+#report-products .price {
+  text-align: right;
+}
+
+#report-products .price:after {
+  content: "€";
+}
+
+#report-products .center {
+  text-align: center;
+}
+
 .user-info {
   display: flex;
   flex-direction: column;

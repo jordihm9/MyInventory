@@ -23,7 +23,9 @@
 				@foreach ($reports as $report)
 					<div class="report">
 						<div class="name">
-							{{ $report->name }}
+							<a href="{{ route('report', ['report' => $report->id]) }}">
+								{{ $report->name }}
+							</a>
 						</div>
 						<div class="date">
 							<div class="from">

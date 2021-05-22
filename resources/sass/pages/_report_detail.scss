@@ -1,0 +1,40 @@
+@use '../abstracts/' as *;
+
+.report-detail {
+	width: 75%;
+
+	margin: 0 auto 2rem auto;
+}
+
+#report-products {
+	width: 100%;
+	margin: 1rem 0 0 0;
+	border-collapse: collapse;
+
+	thead {
+		text-align: center;
+		background: $clr-dark;
+		color: $clr-light;
+	}
+
+	th,
+	td {
+		padding: .5em .75em;
+	}
+
+	tbody > tr:nth-child(even) {
+		background: rgba($clr-dark, .25);
+	}
+
+	.price {
+		text-align: right;
+
+		&:after {
+			content: '\20AC';
+		}
+	}
+
+	.center {
+		text-align: center;
+	}
+}
