@@ -17,6 +17,11 @@
 			</a>
 		</li>
 		<li class="nav-item">
+			<a href="{{ route('reports') }}" class="nav-link @if(Route::currentRouteNamed('reports')) active @endif">
+				Reports
+			</a>
+		</li>
+		<li class="nav-item">
 			<a href="{{ route('account.manage') }}" class="nav-link @if(Route::currentRouteNamed('account.manage')) active @endif">
 				Account
 			</a>

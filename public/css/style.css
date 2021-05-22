@@ -198,6 +198,27 @@ a:hover, a:focus {
   z-index: -1;
 }
 
+.warning-sign {
+  position: relative;
+  width: 0;
+  height: 0;
+  margin: 0 auto 2rem auto;
+  border-top: none;
+  border-left: 3.25rem solid transparent;
+  border-bottom: 6rem solid #091220;
+  border-right: 3.25rem solid transparent;
+}
+
+.warning-sign:after {
+  content: "!";
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  color: #F7F7F7;
+  font-size: 3.35rem;
+}
+
 .outer {
   display: none;
   opacity: 0;
@@ -208,6 +229,7 @@ a:hover, a:focus {
   left: 0;
   height: 100vh;
   width: 100vw;
+  z-index: 30;
   overflow-y: scroll;
   background: rgba(9, 18, 32, 0.75);
   transition: all 300ms ease-in;
@@ -232,6 +254,15 @@ a:hover, a:focus {
 .centered.show {
   display: block;
   opacity: 1;
+}
+
+.no-content-msg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5em;
+  margin: 5em 0 0 0;
 }
 
 @font-face {
@@ -899,15 +930,6 @@ nav > .wrapper .btn {
   transform: scale(1.1);
 }
 
-#no-products-msg {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5em;
-  margin: 5em 0 0 0;
-}
-
 #product-container {
   width: 45rem;
 }
@@ -989,6 +1011,93 @@ nav > .wrapper .btn {
     width: 90%;
   }
 }
+#new-report-btn {
+  position: fixed;
+  left: 10rem;
+  bottom: 5rem;
+  z-index: 1;
+}
+
+#reports-list {
+  margin: auto;
+  width: 65%;
+}
+
+@media screen and (max-width: 992px) {
+  #reports-list {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #reports-list {
+    width: 97%;
+  }
+}
+#reports-list .header,
+#reports-list .report {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr) 3.5rem;
+  align-items: center;
+  padding: 0.5em 1.5em;
+}
+
+#reports-list .header {
+  font-size: 1.25em;
+}
+
+#reports-list .date {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+}
+
+#reports-list .actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#reports-list .list {
+  display: flex;
+  flex-direction: column;
+}
+
+#reports-list .report {
+  border-radius: 1rem;
+  background: #F7F7F7;
+  color: #091220;
+}
+
+#reports-list .report:hover {
+  box-shadow: 0 0 0.65rem 0 rgba(247, 247, 247, 0.5);
+}
+
+#reports-list .report + * {
+  margin: 1rem 0 0 0;
+}
+
+#reports-list .report .date {
+  color: rgba(9, 18, 32, 0.55);
+}
+
+#reports-list .report .del-btn {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  padding: 1rem;
+  border-radius: 50%;
+  background-image: url("/images/icons/delete.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+#reports-list .report .del-btn:hover {
+  background: rgba(9, 18, 32, 0.1) url("/images/icons/delete.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .user-info {
   display: flex;
   flex-direction: column;
