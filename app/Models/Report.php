@@ -27,16 +27,16 @@ class Report extends Model
 
     public function category_stats()
     {
-        return $this->belongsToMany(Category::class, 'reports_categories');
+        return $this->belongsToMany(Category::class, 'reports_categories')->as('stat')->withPivot('value');
     }
 
     public function condition_stats()
     {
-        return $this->belongsToMany(Condition::class, 'reports_conditions');
+        return $this->belongsToMany(Condition::class, 'reports_conditions')->as('stat')->withPivot('value');
     }
 
     public function state_stats()
     {
-        return $this->belongsToMany(State::class, 'reports_states');
+        return $this->belongsToMany(State::class, 'reports_states')->as('stat')->withPivot('value');
     }
 }
