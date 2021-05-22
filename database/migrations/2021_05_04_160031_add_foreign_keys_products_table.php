@@ -14,10 +14,10 @@ class AddForeignKeysProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->foreignId('condition_id')->references('id')->on('conditions')->onUpdate('cascade');
-            $table->foreignId('state_id')->references('id')->on('states')->onUpdate('cascade');
-            $table->foreignId('category_id')->nullable()->references('id')->on('categories')->onUpdate('cascade');
-            $table->foreignId('subcategory_id')->nullable()->references('id')->on('subcategories')->onUpdate('cascade');
+            $table->foreignId('condition_id')->references('id')->on('conditions')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('state_id')->references('id')->on('states')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('category_id')->nullable()->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('subcategory_id')->nullable()->references('id')->on('subcategories')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

@@ -12,9 +12,31 @@ class Report extends Model
      */
     protected $table = 'reports';
 
+    /**
+     * Get the user that owns the report
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function products()
     {
-        // return $this->belongsToMany(Product::class, 'products_reports', 'report_id', 'product_id');
-        return $this->belongsToMany(Product::class, 'products_reports');
+        return $this->belongsToMany(Product::class, 'reports_products');
+    }
+
+    public function category_stats()
+    {
+        return $this->belongsToMany(Category::class, 'reports_categories');
+    }
+
+    public function condition_stats()
+    {
+        return $this->belongsToMany(Condition::class, 'reports_conditions');
+    }
+
+    public function state_stats()
+    {
+        return $this->belongsToMany(State::class, 'reports_states');
     }
 }
