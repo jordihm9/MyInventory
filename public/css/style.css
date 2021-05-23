@@ -1128,10 +1128,6 @@ nav > .wrapper .btn {
   text-align: right;
 }
 
-#report-products .price:after {
-  content: "€";
-}
-
 #report-products .center {
   text-align: center;
 }

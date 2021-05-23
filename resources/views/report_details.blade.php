@@ -21,11 +21,14 @@
 			</thead>
 			<tbody>
 				@foreach ($report->products as $product)
+					@php
+						$price_format = new \NumberFormatter('es-ES', \NumberFormatter::DECIMAL_ALWAYS_SHOWN);
+					@endphp
 					<tr>
 						<td>{{ $product->title }}</td>
-						<td class="price">{{ $product->unit_price }}</td>
+						<td class="price">{{ $price_format->format($product->unit_price) }}</td>
 						<td class="center">{{ $product->quantity }}</td>
-						<td class="price">{{ $product->total_price }}</td>
+						<td class="price">{{ $price_format->format($product->total_price) }}</td>
 					</tr>
 				@endforeach
 			</tbody>
