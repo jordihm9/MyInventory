@@ -11,6 +11,7 @@
 			<h1 class="title">My inventory</h1>
 			<span id="hero-text"></span>
 		</div>
+		<div id="scroll-down-arrow"></div>
 	</section>
 	{{-- STEPS --}}
 	<section id="steps" class="container">

@@ -110,7 +110,9 @@ textarea:focus {
 
 body {
   color: #F7F7F7;
-  background: #091220;
+  background: linear-gradient(60deg, #091220, #35435A, #091220);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   overflow-x: hidden;
 }
 
@@ -740,6 +742,58 @@ nav > .wrapper .btn {
   transform: translate(-50%, -50%);
 }
 
+#hero #scroll-down-arrow {
+  position: absolute;
+  bottom: 10rem;
+  right: 50%;
+  transform: translateX(50%);
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 750ms;
+          animation-duration: 750ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  transition: transform 50ms ease;
+}
+
+#hero #scroll-down-arrow:before, #hero #scroll-down-arrow:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  height: 2rem;
+  -webkit-clip-path: polygon(0% 0%, 50% 100%, 100% 0%, 95% 0%, 50% 80%, 5% 0%);
+          clip-path: polygon(0% 0%, 50% 100%, 100% 0%, 95% 0%, 50% 80%, 5% 0%);
+  background: #F7F7F7;
+  transform: translate(-50%, -50%);
+}
+
+#hero #scroll-down-arrow:after {
+  top: 1rem;
+}
+
+@-webkit-keyframes bounce {
+  from {
+    transform: translate(50%, 0);
+  }
+  to {
+    transform: translate(50%, -2rem);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translate(50%, 0);
+  }
+  to {
+    transform: translate(50%, -2rem);
+  }
+}
 @media screen and (max-width: 1200px) {
   #hero {
     min-height: 100vh;
@@ -756,7 +810,7 @@ nav > .wrapper .btn {
   content: "";
   position: absolute;
   top: 0.2em;
-  right: -0.25em;
+  right: -0.1em;
   bottom: 0.1em;
   width: 0.05em;
   background: #F7F7F7;

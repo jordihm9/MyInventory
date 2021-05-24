@@ -11,6 +11,45 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
+	
+	#scroll-down-arrow {
+		position: absolute;
+		bottom: 10rem;
+		right: 50%;
+		transform: translateX(50%);
+		animation-name: bounce;
+		animation-duration: 750ms;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-fill-mode: forwards;
+		transition: transform 50ms ease;
+		
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 4rem;
+			height: 2rem;
+			clip-path: polygon(0% 0%, 50% 100%, 100% 0%, 95% 0%, 50% 80%, 5% 0%);
+			background: $clr-light;
+			transform: translate(-50%, -50%);
+		}
+		
+		&:after {
+			top: 1rem;
+		}
+
+		@keyframes bounce {
+			from {
+				transform: translate(50%, 0);
+			}
+			to {
+				transform: translate(50%, -2rem);
+			}
+		}
+	}
 
 	@media  screen and (max-width: $xl-breakpoint) {
 		min-height: 100vh;
@@ -27,7 +66,7 @@
 		content: '';
 		position: absolute;
 		top: .2em;
-		right: -.25em;
+		right: -.1em;
 		bottom: .1em;
 		width: .05em;
 		background: $clr-light;

@@ -2,7 +2,9 @@
 
 body {
     color: $clr-light;
-    background: $clr-dark;
+    background: linear-gradient(60deg, $clr-dark, $clr-dark-light, $clr-dark);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow-x: hidden;
 }
 
