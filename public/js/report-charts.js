@@ -69,6 +69,9 @@ function statesChart(states) {
 function createChart(container, chartLabel, labels, data, colors = ['#091220']) {
 	let ctx = container.find('.chart');
 
+	Chart.defaults.font.family = 'Fira Sans';
+	Chart.defaults.font.weight = '300';
+
 	let chart = new Chart(ctx, {
 		type: 'bar',
 		data: {
