@@ -15,5 +15,6 @@ class VerifyCsrfToken extends Middleware
         'category/*',
         'inventory/filter',
         'product/info',
+        'report/chart-data',
     ];
 }

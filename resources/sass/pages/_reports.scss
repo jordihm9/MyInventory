@@ -1,0 +1,89 @@
+@use '../abstracts/' as *;
+
+#new-report-btn {
+	position: fixed;
+	left: 10rem;
+	bottom: 5rem;
+	z-index: 1;
+}
+
+#reports-list {
+	margin: auto;
+	width: 65%;
+
+	@media screen and (max-width: $lg-breakpoint) {
+		width: 80%;
+	}
+
+	@media screen and (max-width: $md-breakpoint) {
+		width: 97%;
+	}
+	
+
+	.header,
+	.report {
+		display: grid;
+		grid-template-columns: repeat(2, 2fr) 3.5rem;
+		align-items: center;
+		padding: .5em 1.5em;
+	}
+
+	.header {
+		font-size: 1.25em;
+	}
+	
+	.date {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		place-items: center;
+	}
+
+	.actions {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	.list {
+		display: flex;
+		flex-direction: column;
+
+	}
+
+	.report {
+		border-radius: 1rem;
+		background: $clr-light;
+		color: $clr-dark;
+
+		&:hover {
+			box-shadow: 0 0 .65rem 0 rgba($clr-light, .5);
+		}
+		
+		// add margin below when there is another following report
+		& + * {
+			margin: 1rem 0 0 0;	
+		}
+
+		.date {
+			color: rgba($clr-dark, 0.55);
+		}
+
+		.del-btn {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			padding: 1rem;
+			border-radius: 50%;
+			background-image: url('/images/icons/delete.svg');
+			background-repeat: no-repeat;
+			background-position: center;
+			cursor: pointer;
+			
+			&:hover {
+				background: rgba($clr-dark, .1) url('/images/icons/delete.svg');
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		}
+	}
+}

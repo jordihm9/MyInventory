@@ -29,4 +29,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+
+    /**
+     * Get the products of the user
+     */
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }

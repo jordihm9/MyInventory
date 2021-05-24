@@ -117,7 +117,7 @@
 		</div>
 	@else
 		{{-- NO PRODUCTS --}}
-		<div id="no-products-msg" class="text-center">
+		<div class="text-center no-content-msg">
 			<h1>You don't have any products yet</h1>
 			<a href="{{ route('product.create.view') }}">
 				<div class="btn primary">Add product</div>

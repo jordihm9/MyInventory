@@ -9,6 +9,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\ReportGeneratorController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -66,6 +69,23 @@ Route::middleware(['auth'])->group(function() {
 			Route::get('edit', [ProductController::class, 'edit'])->name('edit.view');
 			Route::post('save', [ProductController::class, 'save'])->name('save');
 			Route::post('delete', [ProductController::class, 'delete'])->name('delete');
+		});
+	});
+
+	Route::prefix('reports')->group(function() {
+		Route::name('reports')->group(function() {
+			Route::get('', [ReportsController::class, 'show']);
+
+			Route::post('generate', ReportGeneratorController::class)->name('.generate');
+			Route::post('delete', [ReportsController::class, 'delete'])->name('.delete');
+		});
+	});
+	
+	Route::prefix('report')->group(function() {
+		Route::name('report')->group(function() {
+			Route::get('', [ReportController::class, 'show']);
+
+			Route::post('chart-data', [ReportController::class, 'details'])->name('.details');
 		});
 	});
 

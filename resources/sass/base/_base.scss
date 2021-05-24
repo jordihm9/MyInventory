@@ -89,6 +89,27 @@ a {
     }
 }
 
+.warning-sign {
+    position: relative;
+    width: 0;
+    height: 0;
+    margin: 0 auto 2rem auto;
+    border-top: none;
+    border-left: 3.25rem solid transparent;
+    border-bottom: 6rem solid $clr-dark;
+    border-right: 3.25rem solid transparent;
+
+    &:after {
+        content: '!';
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, 50%);
+        color: $clr-light;
+        font-size: 3.35rem;
+    }
+}
+
 .outer {
     display: none;
     opacity: 0;
@@ -99,6 +120,8 @@ a {
     left: 0;
     height: 100vh;
     width: 100vw;
+    z-index: 30;
+    overflow-y: scroll;
     background: rgba($clr-dark, .75);
     transition: all 300ms ease-in;
 
@@ -121,4 +144,13 @@ a {
         display: block;
         opacity: 1;
     }
+}
+
+.no-content-msg {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2.5em;
+	margin: 5em 0 0 0;
 }

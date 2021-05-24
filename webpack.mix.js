@@ -13,3 +13,4 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js');
 mix.sass('resources/sass/style.scss', 'public/css');
+mix.copy('node_modules/chart.js/dist/chart.js', 'public/js/chart.js');
