@@ -154,7 +154,14 @@
 			</div>
 			{{-- IMAGES --}}
 			<div id="images-input" class="input-group">
-				<label>Images</label>
+				<div class="label">
+					<label>Images</label>
+					<span id="images-error" class="error__message">
+						@error('image*')
+						{{ $message }}
+						@enderror
+					</span>
+				</div>
 				<div class="images-wrapper">
 					{{-- here goes file inputs --}}
 					@isset($product->images)
@@ -164,7 +171,7 @@
 								<div class="image-preview"
 								style="background-image: url({{ asset('storage/'. $image->url) }})"
 								>
-									<input type="hidden" value="{{ $image->id }}">
+									<input type="hidden" value="{{ $image->id }}" accept="image/*">
 									{{-- <img src="{{ asset('storage/'. $image->url) }}"> --}}
 									<div class="delete-btn"></div>
 								</div>

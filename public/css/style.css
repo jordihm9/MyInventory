@@ -1300,8 +1300,13 @@ nav > .wrapper .btn {
   height: 100%;
 }
 
-#images-input > label {
+#images-input > .label {
+  display: flex;
   margin-bottom: 1.5em;
+}
+
+#images-input > .label > label, #images-input > .label > .error__message {
+  padding: 0 0 0 1.5em;
 }
 
 .images-wrapper {

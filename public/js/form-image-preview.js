@@ -20,7 +20,6 @@ $(document).ready(function () {
 		});
 	});
 
-	// add an empty input to add a file
 	addInput();
 });
 
@@ -28,6 +27,11 @@ $(document).ready(function () {
  * Append a div with a label and a file input
  */
 function addInput() {
+	// add an empty input to add a file if there are less than the max amount of images x product
+	if ($('.image-preview').length >= maxImages) {
+		return;
+	}
+
 	let input = $('<div>')
 		.addClass('image-preview')
 		.append(
@@ -43,6 +47,7 @@ function addInput() {
 				.prop('type', 'file')
 				.prop('name', `image${inputsCounter}`)
 				.prop('id', `image${inputsCounter}`)
+				.prop('accept', 'image/*')
 				.prop('hidden', true)
 				.on('change', (e)=> {
 					makePreview(e);
@@ -53,6 +58,11 @@ function addInput() {
 
 	// increment counter
 	inputsCounter++;
+
+	// recursion: add another input if there are less inputs than the max allowed
+	if ($('.image-preview').length < maxImages) {
+		addInput();
+	}
 }
 
 /**
@@ -63,6 +73,7 @@ function removeInput(e) {
 	let confirmation = confirm('Are you sure you want to remove the image?');
 	if (confirmation) {
 		$(e.target).parent().remove();
+		addInput();
 	}
 	return confirmation;
 }
@@ -72,6 +83,7 @@ function removeImage(e) {
 	let id = $(e.target).parent().find('input[type=hidden]').val();
 	// append the id to the input with the images to delete
 	imagesToRemoveInput.val(imagesToRemoveInput.val() + ','+ id);
+	addInput();
 }
 
 /**
@@ -110,8 +122,5 @@ function makePreview(e) {
 				)
 				.find('.cross').remove();
 		})
-
-		// add another input when it ends
-		addInput();
 	}
 }

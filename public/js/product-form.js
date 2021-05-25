@@ -1,5 +1,7 @@
 'use strict';
 
+let maxImages = 4;
+
 let unitPrice = 0;
 let quantity = 1;
 let totalPrice = 0;
@@ -14,6 +16,7 @@ const totalPriceInput = $('#total-price');
 const titleError = $('#title-error');
 const unitPriceError = $('#price-error');
 const quantityError = $('#quantity-error');
+const imagesError = $('#images-error');
 
 $(document).ready(function () {
 	// remove all errors when page loads
@@ -35,9 +38,10 @@ $('#product-form').submit((e)=> {
 	let titleOk = validateTitle();
 	let unitPriceOk = validateUnitPrice();
 	let quantityOk = validateQuantity();
+	let imagesOk = validateImages();
 	
 	// validate all inputs necessary, if at least 1 fails, prevent sending the form
-	if (!titleOk || !unitPriceOk || !quantityOk) {
+	if (!titleOk || !unitPriceOk || !quantityOk || !imagesOk) {
 		e.preventDefault();
 	} else {
 		// remove disabled property from total price to add it automatically in request
@@ -130,6 +134,29 @@ function validateUnitPrice() {
 			writeQuantity();
 		}
 	}
+	return validated;
+}
+
+/**
+ * Check there is 1 image and a max of 4 images
+ * @returns {boolean} true if validations are correct
+ */
+function validateImages() {
+	$(imagesError).text('').hide();
+
+	let validated = false;
+
+	// check that at least 1 input has an image
+	$('.image-preview > input').each(function (index, element) {
+		if ($(this).val()) {
+			validated = true;
+		}
+	});
+
+	if (!validated) {
+		$(imagesError).text(`At least upload 1 image.`).show();
+	}
+
 	return validated;
 }
 

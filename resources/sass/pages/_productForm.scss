@@ -62,8 +62,14 @@
 	}
 }
 
-#images-input > label {
+#images-input > .label {
+	display: flex;
 	margin-bottom: 1.5em;
+
+	& > label,
+	& > .error__message {
+		padding: 0 0 0 1.5em;
+	}
 }
 
 .images-wrapper {
