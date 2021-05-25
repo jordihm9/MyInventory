@@ -31,7 +31,7 @@ class RegisterVerificationCode extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->from('no-reply@myinventory.app')
+        return $this->from('no-reply@myinventory.link')
                     ->subject('My Inventory | Registration Verification Code')
                     ->markdown('mail.registration')
                     ->with([

@@ -32,7 +32,7 @@ class ResetPassword extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->from('no-reply@myinventory.app')
+        return $this->from('no-reply@myinventory.link')
                     ->subject('My Inventory | Reset Password')
                     ->markdown('mail.password_reset')
                     ->with([
