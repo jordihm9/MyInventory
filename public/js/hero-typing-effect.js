@@ -3,7 +3,7 @@
 let element = $('#hero-text');
 
 const sentences = [
-	'Manage your belogings'
+	'Manage your belongings'
 ];
 
 carousel();
