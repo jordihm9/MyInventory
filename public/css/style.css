@@ -619,7 +619,6 @@ nav > .wrapper .btn {
   header {
     position: static;
     height: 10vh;
-    background: #091220;
   }
 
   nav {
@@ -733,13 +732,15 @@ nav > .wrapper .btn {
   position: relative;
   min-height: 90vh;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #hero > .wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  width: 100%;
+  transform: translateY(-100%);
 }
 
 #hero #scroll-down-arrow {
@@ -801,7 +802,10 @@ nav > .wrapper .btn {
 }
 #hero-text {
   display: inline-block;
-  position: relative;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 2em;
   font-weight: 300;
 }
@@ -809,10 +813,11 @@ nav > .wrapper .btn {
 #hero-text:after {
   content: "";
   position: absolute;
-  top: 0.2em;
+  bottom: 0;
   right: -0.1em;
   bottom: 0.1em;
   width: 0.05em;
+  height: 1em;
   background: #F7F7F7;
   transition: opacity 500ms ease;
   -webkit-animation-name: blink;

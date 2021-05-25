@@ -4,12 +4,14 @@
 	position: relative;
 	min-height: 90vh;
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	& > .wrapper {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		position: relative;
+		width: 100%;
+		transform: translateY(-100%);
 	}
 	
 	#scroll-down-arrow {
@@ -58,17 +60,22 @@
 
 #hero-text {
 	display: inline-block;
-	position: relative;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
 	font-size: 2em;
 	font-weight: 300;
 
 	&:after {
 		content: '';
 		position: absolute;
-		top: .2em;
+		// top: .2em;
+		bottom: 0;
 		right: -.1em;
 		bottom: .1em;
 		width: .05em;
+		height: 1em;
 		background: $clr-light;
 		transition: opacity 500ms ease;
 		animation-name: blink;
