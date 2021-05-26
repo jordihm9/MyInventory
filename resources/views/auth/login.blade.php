@@ -7,14 +7,14 @@
 		@csrf
 		<div class="input-group required">
 			<label for="email">Email</label>
-			<input type="text" name="email" id="email" value="{{ old('email') }}" class="@error('email') error @enderror" autofocus>
+			<input type="text" name="email" id="email" value="{{ old('email') }}" class="@error('credentials') error @enderror" autofocus>
 			@error('email')
 				<span class="error__message">{{ $message }}</span>
 			@enderror
 		</div>
 		<div class="input-group required">
 			<label for="password">Password</label>
-			<input type="password" name="password" id="password" class="@error('password') error @enderror">
+			<input type="password" name="password" id="password" class="@error('credentials') error @enderror">
 			@error('password')
 				<span class="error__message">{{ $message }}</span>
 			@enderror
