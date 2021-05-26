@@ -119,7 +119,9 @@ class RegisterController extends Controller
             'email_id' => $email->id,
         ]);
 
-        // redirect to to home page
-        return redirect()->route('login.view');
+        // redirect to the login page sending the email used to register
+        return redirect()->route('login.view')->withInput([
+            'email' => $user->email->email,
+        ]);
     }
 }

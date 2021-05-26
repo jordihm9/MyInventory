@@ -31,24 +31,28 @@ changeStep(emailStep); // set the email step as the active
 
 // when form is submited
 $('#register-form').submit((e)=> {
-	e.preventDefault(); // prevent sending the form
-
+	// e.preventDefault(); // prevent sending the form
+	
 	switch (activeStep) {
 		case emailStep:
+			e.preventDefault(); // prevent sending the form
 			validateEmail();
 			break;
-
+			
 		case codeStep:
+			e.preventDefault(); // prevent sending the form
 			validateCode();
 			break;
 			
 		case personalDataStep:
 			let okname = validateName();
 			let okpass = validatePasswords();
-
+				
 			if (okname && okpass) {
 				window.onbeforeunload = null;
-				registerUser();
+				// registerUser();
+			} else {
+				e.preventDefault(); // prevent sending the form
 			}
 			break;
 	}
