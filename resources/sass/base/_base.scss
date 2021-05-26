@@ -1,11 +1,20 @@
 @use '../abstracts/' as *;
 
+html {
+    height: 100%;
+}
+
 body {
     color: $clr-light;
     background: linear-gradient(60deg, $clr-dark, $clr-dark-light, $clr-dark);
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow-x: hidden;
+
+    // to allow footer stick to the bottom of the page
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 a {

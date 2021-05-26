@@ -88,12 +88,19 @@ textarea:focus {
   border: inherit;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   color: #F7F7F7;
   background: linear-gradient(60deg, #091220, #35435A, #091220);
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -628,6 +635,22 @@ nav > .wrapper .btn {
     transform: translateX(0.75em);
   }
 }
+footer {
+  width: 100%;
+  margin-top: auto;
+  min-height: 5rem;
+}
+
+footer .footer {
+  margin-top: 5rem;
+}
+
+footer #copyright {
+  padding: 2em 0;
+  color: #091220;
+  background: #F7F7F7;
+}
+
 #auth-container {
   margin-top: 5vh;
   width: 30rem;

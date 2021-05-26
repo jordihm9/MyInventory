@@ -1,1 +1,17 @@
 @use '../abstracts/' as *;
+
+footer {
+	width: 100%;
+	margin-top: auto;
+	min-height: 5rem;
+
+	.footer {
+		margin-top: 5rem;
+	}
+
+	#copyright {
+		padding: 2em 0;
+		color: $clr-dark;
+		background: $clr-light;
+	}
+}
