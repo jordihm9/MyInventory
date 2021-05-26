@@ -27,11 +27,11 @@
 			</a>
 		</li>
 		@endauth
-		<li class="nav-item">
+		{{-- <li class="nav-item">
 			<a href="#" class="nav-link @if(Route::currentRouteNamed('#')) active @endif">
 				Support
 			</a>
-		</li>
+		</li> --}}
 	</ul>
 	<div class="wrapper">
 		@if (Auth::check())
