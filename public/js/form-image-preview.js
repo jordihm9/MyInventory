@@ -96,6 +96,19 @@ function makePreview(e) {
 	
 	// get the file set to the input
 	const image = input.files[0];
+
+	console.log(image);
+
+	// validate the file size is not bigger than 2MB
+	let fsize = (image.size / 1024);
+	if (fsize >= 2048) {
+		$(imagesError).text('Image too big, maximum image size is: 2MB.');
+		return;
+	} else {
+		$(imagesError).text('').hide();
+	}
+
+	console.log(fsize);
 	
 	if (image) {
 		const fileReader = new FileReader();
