@@ -103,7 +103,7 @@ function makePreview(e) {
 	let fsize = (image.size / 1024);
 	if (fsize >= 2048) {
 		$(imagesError).text('Image too big, maximum image size is: 2MB.');
-		return;
+		return false;
 	} else {
 		$(imagesError).text('').hide();
 	}
