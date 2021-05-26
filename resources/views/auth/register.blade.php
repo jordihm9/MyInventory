@@ -55,4 +55,19 @@
 	<p class="text-center">
 		Already have an account? <a href="{{ route('login.view') }}">Log in</a>
 	</p>
+	@auth
+		<div class="outer show">
+			<div class="container text-center centered show">
+				<div class="warning-sign"></div>
+				<h3>
+					You are logged in!
+				</h3>
+				<div class="submit-container">
+					<a href="{{ route('home') }}">
+						<div class="btn primary" onclick="$('.outer').removeClass('show');">Go home</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	@endauth
 @endsection

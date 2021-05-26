@@ -29,11 +29,6 @@ removeError(passwordError);
 let activeStep; // define active step
 changeStep(emailStep); // set the email step as the active
 
-// detect when user unloads the page (refresh or go back to another page, NOT CLOSING THE TAB)
-window.onbeforeunload = ((e)=> {
-	return 'If you leave this page you would have to wait 10 minutes to register with the email you entered.';
-});
-
 // when form is submited
 $('#register-form').submit((e)=> {
 	e.preventDefault(); // prevent sending the form
@@ -90,6 +85,10 @@ function registerEmail() {
 		success: function (data, textStatus, jqXHR) {
 			if (jqXHR.responseText === 'registered') {
 				changeStep(codeStep);
+				// detect when user unloads the page (refresh or go back to another page, NOT CLOSING THE TAB)
+				window.onbeforeunload = ((e)=> {
+					return 'If you leave this page you would have to wait 10 minutes to register with the email you entered.';
+				});
 			}
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
