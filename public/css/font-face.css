@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Bebas Neue";
+  src: url(/fonts/BebasNeue-Regular.ttf?9aa03f9d52866893add50e8b4912ae52);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Light.ttf?850f6774fcb288117634fe1ba80c38d9);
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Regular.ttf?1c0bf0728b51cb9f2ddc01b897da06d3);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Fira Sans";
+  src: url(/fonts/FiraSans-Bold.ttf?3919333f2e366bb4341e09929ea31d60);
+  font-weight: 700;
+}

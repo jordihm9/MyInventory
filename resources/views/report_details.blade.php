@@ -1,7 +1,14 @@
 @extends('layouts.master')
 
 @push('scripts')
-	<script src="{{ asset('/js/chart.js') }}"></script>
+	@env('production')
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js" integrity="sha512-yadYcDSJyQExcKhjKSQOkBKy2BLDoW6WnnGXCAkCoRlpHGpYuVuBqGObf3g/TdB86sSbss1AOP4YlGSb6EKQPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	@endenv
+
+	@env('local')
+		<script src="{{ asset('/js/chart.js') }}"></script>
+	@endenv
+	
 	<script src="{{ asset('/js/report-charts.js') }}" defer></script>
 @endpush
 
