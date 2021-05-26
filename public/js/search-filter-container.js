@@ -21,7 +21,12 @@ searchFilterForm.on('submit', (e)=> {
 	makeRequest();
 });
 // reset form
-searchFilterForm.on('reset', makeRequest);
+searchFilterForm.on('reset', ()=> {
+	// wait 100 milliseconds to send the request to let reset the form before sending
+	setTimeout(()=> {
+		makeRequest();
+	}, 100);
+});
 // detect any change on inputs or selects
 formInputs.on('change', makeRequest);
 
@@ -53,7 +58,9 @@ function appendProducts(products) {
 
 	if (products !== null && products.length >= 1) {
 		// loop over each product and append it to the products
-		for (const product of products) {
+		for (let i = 0; i < products.length; i++) {
+			const product = products[i];
+
 			// get the first 30 characters of the title
 			let title = product.title.substr(0, 30);
 			// check if the original title has more than 30 characters to append 3 dots at the end
@@ -90,11 +97,26 @@ function appendProducts(products) {
 							)
 					);
 
-			productsContainer.append(
-				container.append(text).append(image).append(editBtn)
-			);
+			// each product will be added with delay to make an effect
+			setTimeout(()=> {
+				productsContainer.append(
+					container.append(text).append(image).append(editBtn)
+				);
+			}, 50*i);
 		}
 	} else {
 		// no products were found
+		productsContainer.append(
+			$('<div>')
+				// .prop('id', 'empty-search')
+				.addClass('empty-search text-center')
+				.append(
+					$('<h2>').text('No products matched the search')
+				)
+				.css({
+					'grid-column': '1 / 4',
+					'margin-top': '25%'
+				})
+		)
 	}
 }

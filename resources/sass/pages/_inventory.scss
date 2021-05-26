@@ -39,6 +39,10 @@ $image-height: 11.5rem;
 	grid-auto-rows : max-content; // make rows fit products height
 	grid-gap: 1.5rem;
 
+	.emtpy-search {
+		grid-column: 1 / 4;
+	}
+
 	.product {
 		position: relative;
 		height: $product-height;

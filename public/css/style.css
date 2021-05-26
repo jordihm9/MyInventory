@@ -860,6 +860,10 @@ nav > .wrapper .btn {
   grid-gap: 1.5rem;
 }
 
+#products .emtpy-search {
+  grid-column: 1/4;
+}
+
 #products .product {
   position: relative;
   height: 15rem;
