@@ -52,6 +52,7 @@ $('#register-form').submit((e)=> {
 			let okpass = validatePasswords();
 
 			if (okname && okpass) {
+				window.onbeforeunload = null;
 				registerUser();
 			}
 			break;
