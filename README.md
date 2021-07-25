@@ -1,62 +1,51 @@
 # My Inventory
 
 ## Deployment
-1. Clone the repository to an specific folder
+
+Clone the repository to an specific folder
 ```
-$ sudo git clone https://github.com/jordihm9/MyInventory.git /var/www/myinventory.link/
+git clone https://github.com/jordihm9/MyInventory.git ./MyInventory
 ```
-2. Make a copy of the `.env.example` to `.env`
+
+Install depencendies using composer
 ```
-$ cp .env.example .env
+composer install
 ```
-3. Setup the environments variables (`.env` file)  
-- Change to production
+
+### Prepare development mode
 ```
-APP_ENV=production
+composer prepare-dev-environment
 ```
-- Turn off debug mode
+
+### Prepare production mode
 ```
-APP_DEBUG=false
+composer prepare-prod-environment
 ```
-- Change credentials/drivers for database and mail
-4. Generate the app key
+
+## Other commands
+
+### Deploy the database container using docker
 ```
-$ php artisan key:generate
+composer deploy-local-db
 ```
-5. Optimize configuration, view and route loading
+
+### Access the database via terminal
 ```
-$ php artisan config:cache
-$ php artisan view:cache
-$ php artisan route:cache
+composer mysql
 ```
-6. Generate the storage links
+
+### Stop the database container
 ```
-$ php artisan storage:link
+composer stop-local-db
 ```
-7. Install dependencies
+
+### Set the permisions for a laravel project
 ```
-$ composer install
+composer set-permisions
 ```
-8. Optimize the autoloader
-```
-$ composer install --optimize-autoloader --no-dev
-```
-9. Change project permisions
-- Change owner
-```
-$ sudo chown www-data:www-data -R /var/www/myinventory.link
-```
-- Change permisions for files and folders
-```
-$ sudo find /var/www/myinventory.link -type f -exec chmod 664 {} \;
-$ sudo find /var/www/myinventory.link -type d -exec chmod 775 {} \;
-```
-- Change specific permisions for the following folders
-```
-$ sudo chmod -R ug+rwx /var/www/myinventory.link/storage /var/www/myinventory.link/bootstrap/cache
-```
-10. Run the scheduler
-- Edit the cron file from the owner of the project
+
+## Running the scheduler in production
+- Edit the cron file from the owner of the project (should be `www-data`)
 ```
 $ sudo crontab -u www-data -e
 ```

@@ -34,9 +34,37 @@
         }
     },
     "scripts": {
-        "prepare_dev_environment": [
-            "cp .env.example .env",
-            "php artisan key:generate"
+        "prepare-dev-environment": [
+            "cp .env.development .env",
+            "php artisan key:generate",
+            "php artisan storage:link",
+            "composer optimize-cache"
+        ],
+        "prepare-prod-environment": [
+            "cp .env.production .env",
+            "php artisan key:generate",
+            "php artisan storage:link",
+            "composer optimize-cache"
+        ],
+        "optimize-cache": [
+            "php artisan cache:clear",
+            "php artisan config:cache",
+            "php artisan view:cache",
+            "php artisan route:cache"
+        ],
+        "set-permisions": [
+            "sudo find ./ -type f -exec chmod 664 {} \\;",
+            "sudo find ./ -type d -exec chmod 775 {} \\;",
+            "sudo chmod -R ug+rwx ./storage ./bootstrap/cache"
+        ],
+        "deploy-local-db": [
+            "docker run -d --rm --name myinventory-db -p 3306:3306 -v ${PWD}/docker/db:/var/lib/mysql -e MARIADB_DATABASE=myinventory -e MARIADB_ROOT_PASSWORD=P@ssw0rd mariadb:10.6"
+        ],
+        "stop-local-db": [
+            "docker stop myinventory-db"
+        ],
+        "mysql": [
+            "docker exec -it myinventory-db mysql -uroot -pP@ssw0rd myinventory"
         ],
         "start_dev": [
             "Composer\\Config::disableProcessTimeout",
